@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    ## mySQL url, id, pw 설정해주세요
+    url:
+    username:
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  main:
+    allow-circular-references: true
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+  thymeleaf:
+    enabled: false
+
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: trace
