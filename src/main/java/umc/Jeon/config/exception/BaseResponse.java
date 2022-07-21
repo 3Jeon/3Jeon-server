@@ -3,7 +3,6 @@ package umc.Jeon.config.exception;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -14,14 +13,13 @@ import static umc.Jeon.config.exception.BaseResponseStatus.SUCCESS;
 
 @Getter
 @AllArgsConstructor
-@JsonPropertyOrder({"isSuccess", "code", "message", "errorMessage", "result"})
+@JsonPropertyOrder({"isSuccess", "code", "message", "result"})
 public class BaseResponse<T> {
     @JsonProperty("isSuccess")
     private final Boolean isSuccess;
     private final int code;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private T result;
-    @ApiModelProperty(example = "메세지")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private LinkedList message;
 
