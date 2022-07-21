@@ -1,9 +1,11 @@
+server:
+  port: 8089
 spring:
   datasource:
     ## mySQL url, id, pw 설정해주세요
-    url:
-    username:
-    password:
+    url: jdbc:mysql://zeno-mysql.cbvuwo5puy0l.ap-northeast-2.rds.amazonaws.com:3306/Instagram?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: abcd123456
     driver-class-name: com.mysql.cj.jdbc.Driver
   mvc:
     pathmatch:
