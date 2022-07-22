@@ -2,9 +2,7 @@ package umc.Jeon.config.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.*;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -14,9 +12,8 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
-//@EnableWebMvc       //springSecurity와 연결할 때 사용, 없으면 404 에러
 @EnableSwagger2     //기능을 활성화하는 어노테이션
-public class SwaggerConfig implements WebMvcConfigurer{//extends WebMvcConfigurationSupport {
+public class SwaggerConfig implements WebMvcConfigurer{
 
     /** 웹 페이지 접속: http://IP:port/swagger-ui/index.html **/
 
@@ -55,13 +52,5 @@ public class SwaggerConfig implements WebMvcConfigurer{//extends WebMvcConfigura
     public void configureViewResolvers(ViewResolverRegistry registry) {
         registry.jsp("/WEB-INF/", ".jsp");
     }
-
-//    @Bean
-//    public ViewResolver customViewResolver() {
-//        InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
-//        internalResourceViewResolver.setPrefix("/WEB-INF/");
-//        internalResourceViewResolver.setSuffix(".jsp");
-//        return internalResourceViewResolver;
-//    }
 
 }
