@@ -1,5 +1,6 @@
 package umc.Jeon.domain.user;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import umc.Jeon.domain.BaseEntity;
@@ -28,4 +29,11 @@ public class User extends BaseEntity {
     private int age;
 
     private String email;
+
+    @Builder
+    public User(String name, String email, String phone) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+    }
 }
