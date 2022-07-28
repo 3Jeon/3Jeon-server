@@ -26,14 +26,16 @@ public class User extends BaseEntity {
     private String phone;
 
     //연령대
-    private int age;
+    private String age;
 
     private String email;
 
     @Builder
-    public User(String name, String email, String phone) {
+    public User(String name, String email, String phone, String nickname, String age) {
         this.name = name;
         this.email = email;
         this.phone = phone;
+        this.nickname = nickname;
+        this.age = age;
     }
 }
