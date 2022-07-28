@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import umc.Jeon.config.exception.BaseResponse;
-import umc.Jeon.domain.auth.dto.OAuthResponse;
+import umc.Jeon.config.auth.dto.OAuthResponse;
 
 @RequiredArgsConstructor
 @RestController

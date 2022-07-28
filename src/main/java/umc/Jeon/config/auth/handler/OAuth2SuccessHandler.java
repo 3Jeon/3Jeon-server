@@ -1,14 +1,14 @@
-package umc.Jeon.config.auth;
+package umc.Jeon.config.auth.handler;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;
-import umc.Jeon.domain.auth.dto.SessionUser;
+import umc.Jeon.config.auth.dto.SessionUser;
 import umc.Jeon.domain.user.User;
 import umc.Jeon.repository.UserRepository;
-import umc.Jeon.utils.JwtService;
+import umc.Jeon.config.auth.jwt.JwtService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Component
-public class Oauth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
+public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
     private final JwtService jwtService;
     private final UserRepository userRepository;

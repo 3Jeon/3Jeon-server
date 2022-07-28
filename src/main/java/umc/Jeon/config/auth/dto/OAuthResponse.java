@@ -1,4 +1,4 @@
-package umc.Jeon.domain.auth.dto;
+package umc.Jeon.config.auth.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package umc.Jeon.domain.auth.dto;
+package umc.Jeon.config.auth.dto;
 
 
 import lombok.Getter;
@@ -12,9 +12,18 @@ public class SessionUser implements Serializable {
     private String name;
     private String email;
 
+    private String nickname;
+
+    private String age;
+
+    private String phone;
+
     public SessionUser(User user) {
         this.id = user.getId();
         this.name = user.getName();
         this.email = user.getEmail();
+        this.nickname = user.getNickname();
+        this.age = user.getAge();
+        this.phone = user.getPhone();
     }
 }

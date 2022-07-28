@@ -1,4 +1,4 @@
-package umc.Jeon.config.auth;
+package umc.Jeon.config.auth.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -9,8 +9,8 @@ import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
-import umc.Jeon.domain.auth.dto.OAuthAttributes;
-import umc.Jeon.domain.auth.dto.SessionUser;
+import umc.Jeon.config.auth.dto.OAuthAttributes;
+import umc.Jeon.config.auth.dto.SessionUser;
 import umc.Jeon.domain.user.User;
 import umc.Jeon.repository.UserRepository;
 

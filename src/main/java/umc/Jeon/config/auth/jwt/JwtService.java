@@ -1,4 +1,4 @@
-package umc.Jeon.utils;
+package umc.Jeon.config.auth.jwt;
 
 
 

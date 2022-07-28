@@ -1,4 +1,4 @@
-package umc.Jeon.domain.auth.dto;
+package umc.Jeon.config.auth.dto;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -12,15 +12,19 @@ public class OAuthAttributes {
     private String nameAttributeKey;
     private String name;
     private String email;
-    private String picture;
+    private String nickname;
+    private String age;
+    private String phone;
 
     @Builder
-    public OAuthAttributes(Map<String, Object> attributes, String nameAttributeKey, String name, String email, String picture) {
+    public OAuthAttributes(Map<String, Object> attributes, String nameAttributeKey, String name, String email, String nickname, String age, String phone) {
         this.attributes = attributes;
         this.nameAttributeKey = nameAttributeKey;
         this.name = name;
         this.email = email;
-        this.picture = picture;
+        this.nickname = nickname;
+        this.age = age;
+        this.phone = phone;
     }
 
     public static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
@@ -37,8 +41,8 @@ public class OAuthAttributes {
     private static OAuthAttributes ofGoogle(String userNameAttributeName, Map<String, Object> attributes) {
         return OAuthAttributes.builder()
                 .name((String) attributes.get("name"))
+                .nickname((String) attributes.get("nickname"))
                 .email((String) attributes.get("email"))
-                .picture((String) attributes.get("picture"))
                 .attributes(attributes)
                 .nameAttributeKey(userNameAttributeName)
                 .build();
@@ -50,14 +54,16 @@ public class OAuthAttributes {
         return OAuthAttributes.builder()
                 .name((String) response.get("name"))
                 .email((String) response.get("email"))
-                .picture((String) response.get("profile_image"))
+                .nickname((String) response.get("nickname"))
+                .age((String) response.get("age"))
+                .phone((String) response.get("mobile"))
                 .attributes(response)
                 .nameAttributeKey(userNameAttributeName)
                 .build();
     }
 
     private static OAuthAttributes ofKakao(String userNameAttributeName, Map<String, Object> attributes) {
-        // kakao는 kakao_account에 유저정보가 있다. (email)
+        // kakao는 kakao_account에 유저정보가 있다. (name, email, age_range)
         Map<String, Object> kakaoAccount = (Map<String, Object>)attributes.get("kakao_account");
         // kakao_account안에 또 profile이라는 JSON객체가 있다. (nickname, profile_image)
         Map<String, Object> kakaoProfile = (Map<String, Object>)kakaoAccount.get("profile");
@@ -65,7 +71,7 @@ public class OAuthAttributes {
         return OAuthAttributes.builder()
                 .name((String) kakaoProfile.get("nickname"))
                 .email((String) kakaoAccount.get("email"))
-                .picture((String) kakaoProfile.get("profile_image_url"))
+                .age((String) kakaoAccount.get("age_range"))
                 .attributes(attributes)
                 .nameAttributeKey(userNameAttributeName)
                 .build();
@@ -75,6 +81,9 @@ public class OAuthAttributes {
         return User.builder()
                 .name(name)
                 .email(email)
+                .age(age)
+                .nickname(nickname)
+                .phone(phone)
                 .build();
     }
 }
