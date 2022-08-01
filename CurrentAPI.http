@@ -1,5 +1,5 @@
-### 네이버 주식 조회 API
-GET localhost:8080/kospi/all
+### 네이버 지도 경로 탐색
+GET localhost:8080/map/?start-lat=37.359708&start-lng=127.1058342&goal-lat=35.179470&goal-lng=129.075986
 
 // 요기요
 ### 현위치 주변 매장 조회(카테고리: 치킨)
@@ -13,13 +13,13 @@ GET localhost:8080/yogiyo/search-restaurants?lat=37.5479009261467&lng=127.062295
 
 /// 배달의 민족
 ### 현위치 주변 매장 조회(카테고리: 치킨)
-GET localhost:8089/baemin/restaurant?category=CHICKEN&lat=37.5479009261467&lng=127.062295814953
+GET localhost:8080/baemin/restaurant?category=CHICKEN&lat=37.5479009261467&lng=127.062295814953
 
 ### 가게의 모든 메뉴 조회
-GET localhost:8089/baemin/13225239/menu
+GET localhost:8080/baemin/13225239/menu
 
 ### 매장 검색
-GET localhost:8089/baemin/search-restaurants?lat=37.5479009261467&lng=127.062295814953&search=굽네치킨
+GET localhost:8080/baemin/search-restaurants?lat=37.5479009261467&lng=127.062295814953&search=굽네치킨
 
 
 ### 가게의 모든 메뉴 조회

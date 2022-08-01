@@ -1,0 +1,9 @@
+diff a/src/main/resources/application.yml b/src/main/resources/application.yml	(rejected hunks)
+@@ -7,7 +7,6 @@
+ 
+   datasource:
+     ## mySQL url, id, pw 설정해주세요
+-    url: jdbc:mysql://zeno-mysql.cbvuwo5puy0l.ap-northeast-2.rds.amazonaws.com:3306/Instagram?serverTimezone=UTC&characterEncoding=UTF-8
+     url: jdbc:mysql://strategies.cpsdhebt0ibj.ap-northeast-2.rds.amazonaws.com:3306/strategies?serverTimezone=UTC&characterEncoding=UTF-8
+     username: root
+     password: 3jeon-server
