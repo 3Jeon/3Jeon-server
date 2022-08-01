@@ -9,11 +9,9 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-public class BMenu {
-    long menuId;
+public class BGroupMenu {
+    long menuGroupId;
     String name;
     String description;
-    List<String> images;
-    String price;
-    boolean soldOut;
+    List<BMenu> bMenus;
 }

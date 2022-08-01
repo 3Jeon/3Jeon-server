@@ -41,14 +41,14 @@ public class BaeminService {
             throw new BaseException(RESPONSE_ERROR);
         }
     }
-//
-//    public List<YRestaurant> getYSearchRestaurants(double lat, double lng, int items, int page, String search) throws BaseException{
-//        try{
-//            List<YRestaurant> YRestaurantList = yogiyoJsoup.getYSearchRestaurants(lat, lng, items, page, search);
-//
-//            return YRestaurantList;
-//        } catch(Exception exception){
-//            throw new BaseException(RESPONSE_ERROR);
-//        }
-//    }
+
+    public List<BSRestaurant> getBSearchRestaurants(double lat, double lng, String search, int items) throws BaseException{
+        try{
+            List<BSRestaurant> bsRestaurantList = baeminJsoup.getBSearchRestaurants(lat, lng, search, items);
+
+            return bsRestaurantList;
+        } catch(Exception exception){
+            throw new BaseException(RESPONSE_ERROR);
+        }
+    }
 }

@@ -9,12 +9,16 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-public class BRestaurant {
+public class BSRestaurant {
     long shopNumber;
     String shopName;
-    List<String> thumbnails;
+    String telNumber;
+    String address;
+    String logoUrl;
+    String closeDayText;
+    String virtualTelNumber;
     boolean inOperation;
+    long minimumOrderPrice;
     double averageStarScore;
-    List<Long> deliveryTips;
-    List<Long> expectedDeliveryTimes;
+    List<Long> deliveryTip;
 }

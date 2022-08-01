@@ -12,27 +12,23 @@ import java.util.List;
 public class BRestaurantDetail {
     long Shop_No;
     String Shop_Nm;
-    String Tel_No;
     String Vel_No;
-    String Addr;
+    List<String> images;
     double Loc_Pnt_Lat;
     double Loc_Pnt_Lng;
-    long Review_Cnt;
+    String Business_Location;
     double Star_Pnt_Avg;
+    long Review_Cnt;
     long Favorite_Cnt;
-    long Ord_Cnt;
-
+    String orderCountText;
     long Min_Ord_Price;
-    List<HeadImgFile> headImgFileList;
-
     boolean deliveryInOperation;
     boolean useDelivery;
-    String shopStatus;
-    boolean inDeliveryArea;
-    boolean userTakeout;
-    long takeoutDiscountRate;
+    boolean useTakeout;
     long takeoutDiscountPrice;
-    String expectedCookTime;
-    String Expected_Delivery_Time;
-
+    long takeoutDiscountRate;
+    String Ct_Cd_Nm;
+    String Ct_Cd_Nm_En;
+    String Dlvry_Tm;
+    String shopStatus;
 }

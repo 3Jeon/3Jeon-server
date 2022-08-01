@@ -17,7 +17,6 @@ import java.util.List;
 public class BaeminController {
     final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Autowired
     private final BaeminService baeminService;
 
     public BaeminController(BaeminService baeminService){
@@ -49,29 +48,28 @@ public class BaeminController {
             user.setLat(37.54766676253973);
             user.setLng(127.0609096938018);
 
-            BRestaurantInfo bStoreInfo = baeminService.getBRestaurantInfo(restaurantId, user.getLat(), user.getLng());
+            BRestaurantInfo bRestaurantInfo = baeminService.getBRestaurantInfo(restaurantId, user.getLat(), user.getLng());
 
-            return new BaseResponse<>(bStoreInfo);
+            return new BaseResponse<>(bRestaurantInfo);
         } catch (BaseException e) {
             return new BaseResponse<>(e.getStatus());
         }
     }
-//
-//    @ResponseBody
-//    @GetMapping("/search-restaurants")
-//    public BaseResponse<List<YRestaurant>> getYSearchRestaurants(
-//            @RequestParam(required = false, defaultValue = "60") int items,
-//            @RequestParam double lat,
-//            @RequestParam double lng,
-//            @RequestParam(required = false, defaultValue = "0") int page,
-//            @RequestParam String search
-//    ) {
-//        try{
-//            List<YRestaurant> YRestaurantList = baeminService.getYSearchRestaurants(lat, lng, items, page, search);
-//
-//            return new BaseResponse<>(YRestaurantList);
-//        } catch (BaseException exception){
-//            return new BaseResponse<>(exception.getStatus());
-//        }
-//    }
+
+    @ResponseBody
+    @GetMapping("/search-restaurants")
+    public BaseResponse<List<BSRestaurant>> getBSearchRestaurants(
+            @RequestParam double lat,
+            @RequestParam double lng,
+            @RequestParam String search,
+            @RequestParam(required = false, defaultValue = "60") int items
+    ) {
+        try{
+            List<BSRestaurant> bsRestaurantList = baeminService.getBSearchRestaurants(lat, lng, search, items);
+
+            return new BaseResponse<>(bsRestaurantList);
+        } catch (BaseException exception){
+            return new BaseResponse<>(exception.getStatus());
+        }
+    }
 }
