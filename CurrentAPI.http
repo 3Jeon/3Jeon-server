@@ -1,5 +1,5 @@
-### 네이버 주식 조회 API
-GET localhost:8080/kospi/all
+### 네이버 지도 경로 탐색
+GET localhost:8080/
 
 // 요기요
 ### 현위치 주변 매장 조회(카테고리: 치킨)
