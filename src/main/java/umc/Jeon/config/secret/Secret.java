@@ -6,4 +6,6 @@ public class Secret {
     public static String YOGIYO_API_KEY = "iphoneap";
     public static String JWT_SECRET_KEY = "UwKYibQQgkW7g-*k.ap9kje-wxBHb9wdXoBT4vnt4P3sJWt-Nu";
 
+    public static final String NMAP_API_KEY = "Pn5RVciG0yTfQ0WNJxnVSoNuGbLQdwfoMkSTCpob";
+    public static final String NMAP_API_KEY_ID = "1zqglvqh0h";
 }
