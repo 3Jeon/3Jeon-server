@@ -1,5 +1,6 @@
 package umc.Jeon.crawling.yogiyo;
 
+import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,6 @@ import java.util.List;
 public class YogiyoController {
     final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Autowired
     private final YogiyoService yogiyoService;
 
     public YogiyoController(YogiyoService yogiyoService){
