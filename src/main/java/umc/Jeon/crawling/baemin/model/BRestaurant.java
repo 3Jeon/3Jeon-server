@@ -10,11 +10,11 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 public class BRestaurant {
-    long shopNumber;
+    Long shopNumber;
     String shopName;
     List<String> thumbnails;
-    boolean inOperation;
-    double averageStarScore;
+    Boolean inOperation;
+    Double averageStarScore;
     List<Long> deliveryTips;
     List<Long> expectedDeliveryTimes;
 }

@@ -1,15 +1,16 @@
 package umc.Jeon.crawling.yogiyo;
 
-import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import umc.Jeon.config.exception.BaseException;
 import umc.Jeon.config.exception.BaseResponse;
 import umc.Jeon.crawling.yogiyo.model.*;
 
 import java.util.List;
+
+import static umc.Jeon.crawling.HashValues.HashValues.YOGIYO_CATEGORY;
+import static umc.Jeon.crawling.HashValues.HashValues.YOGIYO_SORT;
 
 
 @RestController
@@ -26,14 +27,17 @@ public class YogiyoController {
     @ResponseBody
     @GetMapping("/restaurant")
     public BaseResponse<List<YRestaurant>> getYRestaurant(
-            @RequestParam(required = false, defaultValue = "all") String category,
             @RequestParam double lat,
             @RequestParam double lng,
+            @RequestParam String category,
+            @RequestParam(required = false, defaultValue = "rank") String sort,
             @RequestParam(required = false, defaultValue = "0") int page,
             @RequestParam(required = false, defaultValue = "50") int items
     ) {
+        category = YOGIYO_CATEGORY.get(category);
+        sort = YOGIYO_SORT.get(sort);
         try{
-            List<YRestaurant> YRestaurantList = yogiyoService.getYRestaurant(category, lat, lng, page, items);
+            List<YRestaurant> YRestaurantList = yogiyoService.getYRestaurant(lat, lng, category, sort, page, items);
 
             return new BaseResponse<>(YRestaurantList);
         } catch (BaseException exception){
@@ -56,14 +60,17 @@ public class YogiyoController {
     @ResponseBody
     @GetMapping("/search-restaurants")
     public BaseResponse<List<YRestaurant>> getYSearchRestaurants(
-            @RequestParam(required = false, defaultValue = "60") int items,
             @RequestParam double lat,
             @RequestParam double lng,
-            @RequestParam(required = false, defaultValue = "0") int page,
-            @RequestParam String search
+            @RequestParam String search,
+            @RequestParam(required = false, defaultValue = "rank") String sort,
+            @RequestParam(required = false, defaultValue = "60") int items,
+            @RequestParam(required = false, defaultValue = "0") int page
     ) {
+        sort = YOGIYO_SORT.get(sort);
+
         try{
-            List<YRestaurant> YRestaurantList = yogiyoService.getYSearchRestaurants(lat, lng, items, page, search);
+            List<YRestaurant> YRestaurantList = yogiyoService.getYSearchRestaurants(lat, lng, search, sort, items, page);
 
             return new BaseResponse<>(YRestaurantList);
         } catch (BaseException exception){

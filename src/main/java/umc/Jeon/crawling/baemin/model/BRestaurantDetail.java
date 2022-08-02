@@ -10,23 +10,23 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 public class BRestaurantDetail {
-    long Shop_No;
+    Long Shop_No;
     String Shop_Nm;
     String Vel_No;
     List<String> images;
-    double Loc_Pnt_Lat;
-    double Loc_Pnt_Lng;
+    Double Loc_Pnt_Lat;
+    Double Loc_Pnt_Lng;
     String Business_Location;
-    double Star_Pnt_Avg;
-    long Review_Cnt;
-    long Favorite_Cnt;
+    Double Star_Pnt_Avg;
+    Long Review_Cnt;
+    Long Favorite_Cnt;
     String orderCountText;
-    long Min_Ord_Price;
-    boolean deliveryInOperation;
-    boolean useDelivery;
-    boolean useTakeout;
-    long takeoutDiscountPrice;
-    long takeoutDiscountRate;
+    Long Min_Ord_Price;
+    Boolean deliveryInOperation;
+    Boolean useDelivery;
+    Boolean useTakeout;
+    Long takeoutDiscountPrice;
+    Long takeoutDiscountRate;
     String Ct_Cd_Nm;
     String Ct_Cd_Nm_En;
     String Dlvry_Tm;

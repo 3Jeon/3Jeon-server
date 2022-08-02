@@ -1,4 +1,4 @@
-package umc.Jeon.crawling.baemin.model;
+package umc.Jeon.crawling.coupang.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,9 +9,12 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-public class BGroupMenu {
-    Long menuGroupId;
+public class CDish {
+    Long id;
+    Long storeId;
     String name;
     String description;
-    List<BMenu> bMenus;
+    Double salePrice;
+    String displayStatusText;
+    List<String> images;
 }

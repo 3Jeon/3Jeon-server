@@ -10,10 +10,10 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 public class BMenu {
-    long menuId;
+    Long menuId;
     String name;
     String description;
     List<String> images;
     String price;
-    boolean soldOut;
+    Boolean soldOut;
 }

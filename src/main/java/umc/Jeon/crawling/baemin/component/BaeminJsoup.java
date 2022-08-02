@@ -8,7 +8,6 @@ import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Component;
-import umc.Jeon.crawling.User.User;
 import umc.Jeon.crawling.baemin.model.*;
 
 import java.io.IOException;
@@ -16,19 +15,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import static umc.Jeon.config.secret.Secret.BAEMIN_USER_AGENT;
+
 @Component
 public class BaeminJsoup {
 
     // 주변 레스토랑 불러오기
-    public List<BRestaurant> getBRestaurant(String category, double lat, double lng) {
+    public List<BRestaurant> getBRestaurant(double lat, double lng, String category, String sort) {
         String url = "https://shopdp-api.baemin.com/v1/BAEMIN/curations";
         Connection conn = Jsoup.connect(url)
                 .header("Host", "shopdp-api.baemin.com")
-                .header("User-Agent", "iph1_11.26.1")
+                .header("User-Agent", BAEMIN_USER_AGENT)
                 .header("USER-BAEDAL", "baemin")
-                .data("displayCategory", category)
                 .data("latitude", Double.toString(lat))
                 .data("longitude", Double.toString(lng))
+                .data("displayCategory", category)
+                .data("sort", sort)
                 .data("sort", "SORT__DISTANCE")
                 .data("distance", "1")
                 .timeout(10000)
@@ -64,7 +66,7 @@ public class BaeminJsoup {
         String url = String.format("https://shopdp-api.baemin.com/v8/shop/%s/detail", String.valueOf(id));
         Connection conn = Jsoup.connect(url)
                 .header("Host", "shopdp-api.baemin.com")
-                .header("User-Agent", "iph1_11.26.1")
+                .header("User-Agent", BAEMIN_USER_AGENT)
                 .data("lat", Double.toString(lat))
                 .data("lng", Double.toString(lng))
                 .timeout(10000)
@@ -111,7 +113,7 @@ public class BaeminJsoup {
                     bMenuList.add(getMenuInfo(tmp));
                 }
                 BGroupMenu bGroupMenu = new BGroupMenu(
-                        (long) cur.get("menuGroupId"),
+                        (Long) cur.get("menuGroupId"),
                         (String) cur.get("name"),
                         (String) cur.get("description"),
                         bMenuList
@@ -134,14 +136,15 @@ public class BaeminJsoup {
         }
     }
 
-    public List<BSRestaurant> getBSearchRestaurants(double lat, double lng, String search, int items) {
+    public List<BSRestaurant> getBSearchRestaurants(double lat, double lng, String search, String sort, int items) {
         String url = String.format("https://search-gateway.baemin.com/v1/search?appver=11.26.1&currentTab=BAEMIN_DELIVERY&isBmartRegion=0&isFirstRequest=1");
         Connection conn = Jsoup.connect(url)
                 .header("USER-BAEDAL", "baemin")
-                .header("User-Agent", "iph1_11.26.1")
+                .header("User-Agent", BAEMIN_USER_AGENT)
                 .data("latitude", Double.toString(lat))
                 .data("longitude", Double.toString(lng))
                 .data("keyword", search)
+                .data("baeminDeliverySort", sort)
                 .data("limit", Integer.toString(items))
                 .timeout(10000)
                 .ignoreContentType(true)
@@ -192,19 +195,19 @@ public class BaeminJsoup {
                 (String) shopInfo.get("Shop_Nm"),
                 (String) shopInfo.get("Vel_No"),
                 headImageList,
-                (double) shopInfo.get("Loc_Pnt_Lat"),
-                (double) shopInfo.get("Loc_Pnt_Lng"),
+                (Double) shopInfo.get("Loc_Pnt_Lat"),
+                (Double) shopInfo.get("Loc_Pnt_Lng"),
                 (String) shopInfo.get("Business_Location"),
                 Double.parseDouble((String) shopInfo.get("Star_Pnt_Avg")),
                 Long.parseLong((String) shopInfo.get("Review_Cnt")),
                 Long.parseLong((String) shopInfo.get("Favorite_Cnt")),
                 (String) shopInfo.get("orderCountText"),
                 Long.parseLong((String) menu_info.get("Min_Ord_Price")),
-                (boolean) shopInfo.get("deliveryInOperation"),
-                (boolean) shopInfo.get("useDelivery"),
-                (boolean) shopInfo.get("useTakeout"),
-                (long) shopInfo.get("takeoutDiscountPrice"),
-                (long) shopInfo.get("takeoutDiscountRate"),
+                (Boolean) shopInfo.get("deliveryInOperation"),
+                (Boolean) shopInfo.get("useDelivery"),
+                (Boolean) shopInfo.get("useTakeout"),
+                (Long) shopInfo.get("takeoutDiscountPrice"),
+                (Long) shopInfo.get("takeoutDiscountRate"),
                 (String) shopInfo.get("Ct_Cd_Nm"),
                 (String) shopInfo.get("Ct_Cd_Nm_En"),
                 (String) shopInfo.get("Dlvry_Tm"),
@@ -222,12 +225,12 @@ public class BaeminJsoup {
             imageList.add(imageUrl);
         }
         BMenu bMenu = new BMenu(
-                (long) jsonObject.get("menuId"),
+                (Long) jsonObject.get("menuId"),
                 (String) jsonObject.get("name"),
                 (String) jsonObject.get("description"),
                 imageList,
                 (String) ((JSONObject) ((JSONArray) jsonObject.get("menuPrices")).get(0)).get("price"),
-                (boolean) jsonObject.get("soldOut")
+                (Boolean) jsonObject.get("soldOut")
         );
         return bMenu;
     }
@@ -260,11 +263,11 @@ public class BaeminJsoup {
             expectedDeliveryTime.add(iterator2.next());
 
         BRestaurant bRestaurant = new BRestaurant(
-                Integer.parseInt(String.valueOf(shopInfo.get("shopNumber"))),
+                Long.parseLong(String.valueOf(shopInfo.get("shopNumber"))),
                 (String) shopInfo.get("shopName"),
                 thumbnailList,
-                (boolean) inOperation.get("inOperation"),
-                (double) shopStatistics.get("averageStarScore"),
+                (Boolean) inOperation.get("inOperation"),
+                (Double) shopStatistics.get("averageStarScore"),
                 deliveryTip,
                 expectedDeliveryTime
         );
@@ -287,26 +290,17 @@ public class BaeminJsoup {
             deliveryTip.add(iterator.next());
 
         BSRestaurant bsRestaurant = new BSRestaurant(
-                (long) shopInfo.get("shopNumber"),
+                (Long) shopInfo.get("shopNumber"),
                 (String) shopInfo.get("shopName"),
                 (String) shopInfo.get("logoUrl"),
                 (String) shopInfo.get("closeDayText"),
                 (String) shopInfo.get("address"),
                 (String) shopInfo.get("telNumber"),
                 (String) shopInfo.get("virtualTelNumber"),
-                (boolean) shopStatus.get("inOperation"),
-                (long) deliveryInfo.get("minimumOrderPrice"),
-                (double) shopStatistics.get("averageStarScore"),
+                (Boolean) shopStatus.get("inOperation"),
+                (Long) deliveryInfo.get("minimumOrderPrice"),
+                (Double) shopStatistics.get("averageStarScore"),
                 deliveryTip);
         return bsRestaurant;
-    }
-
-    public static void main(String[] args) {
-        BaeminJsoup baeminJsoup = new BaeminJsoup();
-        User user = new User();
-        user.setLat(37.54766676253973);
-        user.setLng(127.0609096938018);
-        List<BSRestaurant> bsRestaurant = baeminJsoup.getBSearchRestaurants(user.getLat(), user.getLng(), "곱창", 30);
-        System.out.println(bsRestaurant.toString());
     }
 }

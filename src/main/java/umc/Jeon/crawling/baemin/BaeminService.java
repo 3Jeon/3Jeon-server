@@ -22,9 +22,9 @@ public class BaeminService {
         this.baeminJsoup = baeminJsoup;
     }
 
-    public List<BRestaurant> getBRestaurant(String category, double lat, double lng) throws BaseException {
+    public List<BRestaurant> getBRestaurant(double lat, double lng, String category, String sort) throws BaseException {
         try{
-            List<BRestaurant> BRestaurantList = baeminJsoup.getBRestaurant(category, lat, lng);
+            List<BRestaurant> BRestaurantList = baeminJsoup.getBRestaurant(lat, lng, category, sort);
 
             return BRestaurantList;
         } catch(Exception exception){
@@ -42,9 +42,9 @@ public class BaeminService {
         }
     }
 
-    public List<BSRestaurant> getBSearchRestaurants(double lat, double lng, String search, int items) throws BaseException{
+    public List<BSRestaurant> getBSearchRestaurants(double lat, double lng, String search, String sort, int items) throws BaseException{
         try{
-            List<BSRestaurant> bsRestaurantList = baeminJsoup.getBSearchRestaurants(lat, lng, search, items);
+            List<BSRestaurant> bsRestaurantList = baeminJsoup.getBSearchRestaurants(lat, lng, search, sort, items);
 
             return bsRestaurantList;
         } catch(Exception exception){

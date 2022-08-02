@@ -10,15 +10,15 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 public class BSRestaurant {
-    long shopNumber;
+    Long shopNumber;
     String shopName;
     String telNumber;
     String address;
     String logoUrl;
     String closeDayText;
     String virtualTelNumber;
-    boolean inOperation;
-    long minimumOrderPrice;
-    double averageStarScore;
+    Boolean inOperation;
+    Long minimumOrderPrice;
+    Double averageStarScore;
     List<Long> deliveryTip;
 }

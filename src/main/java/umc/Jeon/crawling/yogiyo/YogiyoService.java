@@ -23,9 +23,9 @@ public class YogiyoService {
         this.yogiyoJsoup = yogiyoJsoup;
     }
 
-    public List<YRestaurant> getYRestaurant(String category, double lat, double lng, int page, int items) throws BaseException {
+    public List<YRestaurant> getYRestaurant(double lat, double lng, String category, String sort, int page, int items) throws BaseException {
         try{
-            List<YRestaurant> YRestaurantList = yogiyoJsoup.getYRestaurantList(category, lat, lng, page, items);
+            List<YRestaurant> YRestaurantList = yogiyoJsoup.getYRestaurantList(lat, lng, category, sort, page, items);
 
             return YRestaurantList;
         } catch(Exception exception){
@@ -43,9 +43,9 @@ public class YogiyoService {
         }
     }
 
-    public List<YRestaurant> getYSearchRestaurants(double lat, double lng, int items, int page, String search) throws BaseException{
+    public List<YRestaurant> getYSearchRestaurants(double lat, double lng, String search, String sort, int items, int page) throws BaseException{
         try{
-            List<YRestaurant> YRestaurantList = yogiyoJsoup.getYSearchRestaurants(lat, lng, items, page, search);
+            List<YRestaurant> YRestaurantList = yogiyoJsoup.getYSearchRestaurants(lat, lng, search, sort, items, page);
 
             return YRestaurantList;
         } catch(Exception exception){
