@@ -27,8 +27,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/**").permitAll()
                     .anyRequest().authenticated()
                 .and()
+                    /** 로그인 페이지 생성 **/
                     .oauth2Login()
                         .successHandler(successHandler)
+                        /** 네이버 USER INFO의 응답을 처리하기 위한 설정 **/
                         .userInfoEndpoint()
                             .userService(customOauth2UserService);
     }
