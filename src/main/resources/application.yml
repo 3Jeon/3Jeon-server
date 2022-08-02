@@ -9,7 +9,7 @@ spring:
     # url: jdbc:mysql://strategies.cpsdhebt0ibj.ap-northeast-2.rds.amazonaws.com:3306/strategies?serverTimezone=UTC&characterEncoding=UTF-8&autoReconnect=true
     # username: root
     # password: 3jeon-server
-    url: jdbc:mysql://zeno-mysql.cbvuwo5puy0l.ap-northeast-2.rds.amazonaws.com:3306/Instagram?serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mysql://zeno-mysql.cbvuwo5puy0l.ap-northeast-2.rds.amazonaws.com:3306/Instagram?serverTimezone=UTC&characterEncoding=UTF-8&autoReconnect=true
     username: root
     password: abcd123456
     driver-class-name: com.mysql.cj.jdbc.Driver

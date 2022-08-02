@@ -12,6 +12,7 @@ spring:
           naver:
             client-id: Vef1Tfl3BU3SXqbU4j8O
             client-secret: gWww1FGuI9
+            # redirect-uri: "http://52.79.89.23:8080/{action}/oauth2/code/{registrationId}"
             redirect-uri: "http://3.34.134.100:8080/{action}/oauth2/code/{registrationId}"
             authorization-grant-type: authorization_code
             scope: name, email, nickname, age, mobile
@@ -20,7 +21,8 @@ spring:
             #client-id == REST api KEY
             client-id: b51941d6589770df240008eb26f02f17
             client-secret: s8eEfWkEMWwQelLdIZv2dqmEN3DwCZc6
-            redirect-uri: "http://3.34.134.100:8080/{action}/oauth2/code/{registrationId"
+            # redirect-uri: "http://3.34.134.100:8080/{action}/oauth2/code/{registrationId}"
+            redirect-uri: "http://52.79.89.23:8080/{action}/oauth2/code/{registrationId}"
             client-authentication-method: POST
             authorization-grant-type: authorization_code
             scope: profile_nickname, account_email, age_range
