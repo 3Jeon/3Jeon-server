@@ -21,6 +21,13 @@ GET localhost:8080/baemin/13225239/menu
 ### 매장 검색
 GET localhost:8080/baemin/search-restaurants?lat=37.5479009261467&lng=127.062295814953&search=굽네치킨
 
+// 쿠팡이츠
+### 현위치 주변 매장 조회(카테고리: 치킨)
+GET localhost:8080/coupang/restaurant?category=10&lat=37.5479009261467&lng=127.062295814953
 
 ### 가게의 모든 메뉴 조회
-GET localhost:8089/yogiyo/313580/menu
+GET localhost:8080/coupang/469509/menu
+
+### 매장 검색
+GET localhost:8080/coupang/search-restaurants?lat=37.5479009261467&lng=127.062295814953&search=굽네치킨
+
