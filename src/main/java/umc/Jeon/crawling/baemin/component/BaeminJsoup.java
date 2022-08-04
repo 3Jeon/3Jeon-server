@@ -102,6 +102,7 @@ public class BaeminJsoup {
                 BMenu bMenu = getMenuInfo(cur);
                 representationMenuList.add(bMenu);
             }
+            /*
             List<BGroupMenu> groupMenuList = new ArrayList<>();
             // 그룹 메뉴
             for (int i = 0; i < groupMenus.size(); i++) {
@@ -122,10 +123,12 @@ public class BaeminJsoup {
                 groupMenuList.add(bGroupMenu);
             }
 
+             */
+
             BRestaurantInfo bRestaurantInfo = new BRestaurantInfo(
                     bRestaurantDetail,
-                    representationMenuList,
-                    groupMenuList
+                    representationMenuList
+//                    groupMenuList
             );
 
             return bRestaurantInfo;
