@@ -1,5 +1,6 @@
 package umc.Jeon.crawling.yogiyo;
 
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,7 @@ public class YogiyoController {
         this.yogiyoService = yogiyoService;
     }
 
+    @ApiOperation(value = "요기요 주변 레스토랑 조회", notes = "카테고리에 기반한 주변 레스토랑 조회")
     @ResponseBody
     @GetMapping("/restaurant")
     public BaseResponse<List<YRestaurant>> getYRestaurant(
@@ -45,6 +47,7 @@ public class YogiyoController {
         }
     }
 
+    @ApiOperation(value = "요기요 매장 메뉴 조회", notes = "매장 ID로 메뉴 조회")
     @ResponseBody
     @GetMapping("/{restaurant-id}/menu")
     public BaseResponse<List<YMenuGroup>> getYMenus(@PathVariable(value = "restaurant-id") long restaurantId){
@@ -57,6 +60,7 @@ public class YogiyoController {
         }
     }
 
+    @ApiOperation(value = "요기요 매장 검색", notes = "키워드를 이용한 매장 검색")
     @ResponseBody
     @GetMapping("/search-restaurants")
     public BaseResponse<List<YRestaurant>> getYSearchRestaurants(

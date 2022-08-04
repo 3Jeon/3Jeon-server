@@ -1,8 +1,6 @@
 package umc.Jeon.crawling.baemin;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.Tag;
+import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -28,13 +26,13 @@ public class BaeminController {
         this.baeminService = baeminService;
     }
 
-    @ApiOperation(value="배달의민족 주변 매장 조회")
+    @ApiOperation(value = "배달의민족 주변 레스토랑 조회", notes = "카테고리에 기반한 주변 레스토랑 조회")
     @ResponseBody
     @GetMapping("/restaurant")
     public BaseResponse<List<BRestaurant>> getBRestaurant(
-            @RequestParam String category,
             @RequestParam double lat,
             @RequestParam double lng,
+            @RequestParam String category,
             @RequestParam(required = false, defaultValue = "rank") String sort
     ) {
         // 카테고리, 정렬기준
@@ -49,7 +47,7 @@ public class BaeminController {
             return new BaseResponse<>(exception.getStatus());
         }
     }
-    @ApiOperation(value="배달의민족 메뉴 조회")
+    @ApiOperation(value = "배달의민족 매장 메뉴 조회", notes = "매장 ID로 메뉴 조회")
     @ResponseBody
     @GetMapping("/{restaurant-id}/menu")
     public BaseResponse<BRestaurantInfo> getYMenus(@PathVariable(value = "restaurant-id") int restaurantId){
@@ -66,7 +64,7 @@ public class BaeminController {
             return new BaseResponse<>(e.getStatus());
         }
     }
-    @ApiOperation(value = "배달의민족 매장 검색")
+    @ApiOperation(value = "배달의민족 매장 검색", notes = "키워드를 이용한 매장 검색")
     @ResponseBody
     @GetMapping("/search-restaurants")
     public BaseResponse<List<BSRestaurant>> getBSearchRestaurants(

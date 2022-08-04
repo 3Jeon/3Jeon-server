@@ -1,11 +1,11 @@
 package umc.Jeon.navermap;
 
-import _3jeon.server.naverMap.model.MapStats;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import umc.Jeon.config.exception.BaseException;
 import umc.Jeon.navermap.component.NaverMapJsoup;
+import umc.Jeon.navermap.model.MapStats;
 
 import static umc.Jeon.config.exception.BaseResponseStatus.*;
 

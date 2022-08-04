@@ -1,5 +1,6 @@
 package umc.Jeon.crawling.coupang;
 
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,7 @@ public class CoupangController {
         this.coupangService = coupangService;
     }
 
+    @ApiOperation(value = "쿠팡이츠 주변 레스토랑 조회", notes = "카테고리에 기반한 주변 레스토랑 조회")
     @ResponseBody
     @GetMapping("/restaurant")
     public BaseResponse<List<CRestaurant>> getCRestaurant(
@@ -43,6 +45,7 @@ public class CoupangController {
         }
     }
 
+    @ApiOperation(value = "쿠팡이츠 매장 메뉴 조회", notes = "매장 ID로 메뉴 조회")
     @ResponseBody
     @GetMapping("/{restaurant-id}/menu")
     public BaseResponse<CRestaurantMenus> getCMenus(@PathVariable(value = "restaurant-id") int restaurantId){
@@ -60,6 +63,7 @@ public class CoupangController {
         }
     }
 
+    @ApiOperation(value = "쿠팡이츠 매장 검색", notes = "키워드를 이용한 매장 검색")
     @ResponseBody
     @GetMapping("/search-restaurants")
     public BaseResponse<List<CRestaurant>> getCSearchRestaurants(

@@ -1,9 +1,10 @@
 package umc.Jeon.navermap;
 
-import _3jeon.server.naverMap.model.MapStats;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import umc.Jeon.config.exception.BaseException;
 import umc.Jeon.config.exception.BaseResponse;
+import umc.Jeon.navermap.model.MapStats;
 
 @RestController
 @RequestMapping("/map")
@@ -15,9 +16,10 @@ public class NaverMapController {
         this.naverMapService = naverMapService;
     }
 
+    @ApiOperation(value = "네이버 경로 API", notes = "키워드를 이용한 매장 검색")
     @ResponseBody
     @GetMapping("")
-    public BaseResponse<MapStats> getYRestaurant(
+    public BaseResponse<MapStats> getMapStats(
             @RequestParam(value = "start-lat") String startLat,
             @RequestParam(value = "start-lng") String startLng,
             @RequestParam(value = "goal-lat") String goalLat,

@@ -1,6 +1,5 @@
 package umc.Jeon.navermap.component;
 
-import _3jeon.server.naverMap.model.MapStats;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import org.jsoup.nodes.Document;
 import umc.Jeon.config.secret.Secret;
+import umc.Jeon.navermap.model.MapStats;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
