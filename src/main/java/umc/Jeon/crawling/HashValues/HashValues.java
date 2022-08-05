@@ -1,11 +1,14 @@
 package umc.Jeon.crawling.HashValues;
 
+import org.springframework.stereotype.Component;
+
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+@Component
 public class HashValues {
     // 카테고리
     public static HashMap<String, String> YOGIYO_CATEGORY;
@@ -26,14 +29,26 @@ public class HashValues {
                 "아시안푸드"
         ));
         List<String> yogiyo_category = new ArrayList<>(Arrays.asList(
-
+                "1인분주문", "한식", "일식돈까스", "중식",
+                "피자양식", "치킨", "분식", "고기구이",
+                "샌드위치", "야식", "버거", "카페디저트",
+                "아시안"
         ));
         List<String> baemin_category = new ArrayList<>(Arrays.asList(
-
+                "SOLO_BAEMIN_ALL", "BAEKBAN", "JAPANESE", "CHINESE",
+                "WESTERN", "CHICKEN", "SNACK", "MEAT",
+                "DOSIRAK", "NIGHTSNACK", "FASTFOOD", "CAFE",
+                "ASIAN"
         ));
         List<String> coupang_category = new ArrayList<>(Arrays.asList(
-
+                "30", "1", "3", "2",
+                "4", "7", "16", "26",
+                "11", "23", "10", "19",
+                "5"
         ));
+        YOGIYO_CATEGORY = setHashMap(main_category, yogiyo_category);
+        BAEMIN_CATEGORY = setHashMap(main_category, baemin_category);
+        COUPANG_CATEGORY = setHashMap(main_category, coupang_category);
 
         // 정렬 정의
         List<String> main_sort = new ArrayList<>(Arrays.asList(

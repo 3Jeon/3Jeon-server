@@ -26,5 +26,6 @@ public class CRestaurantMenus {
     boolean pickupAvailable;
     boolean supportedPickup;
     String estimatedPickupTime;
-    List<CMenu> Menus;
+//    List<CMenu> Menus;
+    List<CDish> dishes;
 }

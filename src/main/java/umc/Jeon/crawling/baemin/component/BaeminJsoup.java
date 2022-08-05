@@ -32,7 +32,7 @@ public class BaeminJsoup {
                 .data("displayCategory", category)
                 .data("sort", sort)
                 .data("sort", "SORT__DISTANCE")
-                .data("distance", "1")
+                .data("distance", "2")
                 .timeout(10000)
                 .ignoreContentType(true)
                 .method(Connection.Method.GET);
@@ -102,6 +102,7 @@ public class BaeminJsoup {
                 BMenu bMenu = getMenuInfo(cur);
                 representationMenuList.add(bMenu);
             }
+            /*
             List<BGroupMenu> groupMenuList = new ArrayList<>();
             // 그룹 메뉴
             for (int i = 0; i < groupMenus.size(); i++) {
@@ -122,10 +123,12 @@ public class BaeminJsoup {
                 groupMenuList.add(bGroupMenu);
             }
 
+             */
+
             BRestaurantInfo bRestaurantInfo = new BRestaurantInfo(
                     bRestaurantDetail,
-                    representationMenuList,
-                    groupMenuList
+                    representationMenuList
+//                    groupMenuList
             );
 
             return bRestaurantInfo;
@@ -292,10 +295,10 @@ public class BaeminJsoup {
         BSRestaurant bsRestaurant = new BSRestaurant(
                 (Long) shopInfo.get("shopNumber"),
                 (String) shopInfo.get("shopName"),
+                (String) shopInfo.get("telNumber"),
+                (String) shopInfo.get("address"),
                 (String) shopInfo.get("logoUrl"),
                 (String) shopInfo.get("closeDayText"),
-                (String) shopInfo.get("address"),
-                (String) shopInfo.get("telNumber"),
                 (String) shopInfo.get("virtualTelNumber"),
                 (Boolean) shopStatus.get("inOperation"),
                 (Long) deliveryInfo.get("minimumOrderPrice"),

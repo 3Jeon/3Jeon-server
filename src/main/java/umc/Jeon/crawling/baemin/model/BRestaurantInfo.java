@@ -14,5 +14,5 @@ import java.util.List;
 public class BRestaurantInfo {
     BRestaurantDetail bRestaurantDetail;
     List<BMenu> bMenus;
-    List<BGroupMenu> bGroupMenus;
+//    List<BGroupMenu> bGroupMenus; // 20220804 아크 요청으로 삭제
 }
