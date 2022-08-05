@@ -92,7 +92,9 @@ public class CoupangJsoup {
             for (int i = 0; i < images.size(); i++)
                 imageList.add((String) images.get(i));
 
-            List<CMenu> menus = getCMenus(jsonArray);
+            // 메뉴 리스트 생성
+            //List<CMenu> menus = getCMenus(jsonArray);
+            List<CDish> dishes = getCMenus(jsonArray);
 
             // 매장 정보 생성
             CRestaurantMenus cRestaurantMenus = new CRestaurantMenus(
@@ -112,7 +114,8 @@ public class CoupangJsoup {
                     (Boolean) jsonObject.get("pickupAvailable"),
                     (Boolean) jsonObject.get("supportedPickup"),
                     (String) jsonObject.get("estimatedPickupTime"),
-                    menus
+//                    menus
+                    dishes
             );
 
             return cRestaurantMenus;
@@ -190,16 +193,16 @@ public class CoupangJsoup {
                 (Boolean) cur.get("supportedPickup"));
         return cRestaurant;
     }
-    private List<CMenu> getCMenus(JSONArray jsonArray) {
-        List<CMenu> cMenus = new ArrayList<>();
+    private List<CDish> getCMenus(JSONArray jsonArray) {
+//        List<CMenu> cMenus = new ArrayList<>();
 
+        List<CDish> dishList = new ArrayList<>();
         for (int i = 0; i < jsonArray.size(); i++) {
             JSONObject cur = (JSONObject) jsonArray.get(i);
             // 메뉴 하나
             JSONArray dishes = (JSONArray) cur.get("dishes");
 
             // 메뉴 생성
-            List<CDish> dishList = new ArrayList<>();
             for (int j = 0; j < dishes.size(); j++) {
                 JSONObject dish = (JSONObject) dishes.get(j);
                 JSONArray imagePaths = (JSONArray) dish.get("imagePaths");
@@ -219,16 +222,16 @@ public class CoupangJsoup {
                 );
                 dishList.add(cDish);
             }
-            CMenu cMenu = new CMenu(
-                    (Long) cur.get("id"),
-                    (Long) cur.get("storeId"),
-                    (String) cur.get("name"),
-                    (String) cur.get("description"),
-                    dishList
-            );
-            cMenus.add(cMenu);
+//            CMenu cMenu = new CMenu(
+//                    (Long) cur.get("id"),
+//                    (Long) cur.get("storeId"),
+//                    (String) cur.get("name"),
+//                    (String) cur.get("description"),
+//                    dishList
+//            );
+//            cMenus.add(cMenu);
         }
-        return cMenus;
+        return dishList;
     }
 
     public static void main(String[] args) {
