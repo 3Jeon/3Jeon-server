@@ -10,25 +10,26 @@ spring:
             # redirect-url: "http://localhost:8080/oauth2/authorization/google"
             redirect-uri: "http://43.200.96.202:8080/{action}/oauth2/code/{registrationId}"
             scope: profile, email
+
           naver:
             client-id: Vef1Tfl3BU3SXqbU4j8O
             client-secret: gWww1FGuI9
-#            redirect-uri: "http://3.34.134.100:8080/{action}/oauth2/code/{registrationId}"
             redirect-uri: "http://43.200.96.202:8080/{action}/oauth2/code/{registrationId}"
 #            redirect-uri: "http://localhost:8080/oauth2/authorization/naver"
             authorization-grant-type: authorization_code
             scope: name, email, nickname, age, mobile
             client-name: Naver
+
           kakao:
             #client-id == REST api KEY
             client-id: b51941d6589770df240008eb26f02f17
             client-secret: s8eEfWkEMWwQelLdIZv2dqmEN3DwCZc6
-#            redirect-uri: "http://43.200.96.202:8080/{action}/oauth2/code/{registrationId}"
             redirect-uri: "http://43.200.96.202:8080/oauth2/authorization/kakao"
             client-authentication-method: POST
             authorization-grant-type: authorization_code
             scope: profile_nickname, account_email, age_range
             client-name: Kakao
+
         # Provider 설정
         provider:
           naver:

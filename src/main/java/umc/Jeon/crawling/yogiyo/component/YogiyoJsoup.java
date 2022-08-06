@@ -20,7 +20,7 @@ import java.util.List;
 public class YogiyoJsoup {
 
     // 주변 레스토랑 불러오기
-    public List<YRestaurant> getYRestaurantList(String category, double lat, double lng, int page, int items) {
+    public List<YRestaurant> getYRestaurantList(double lat, double lng, String category, String sort, int page, int items) {
         String url = "https://www.yogiyo.co.kr/api/v1/restaurants-geo/";
         Connection conn = Jsoup.connect(url)
                 .header("Host", "www.yogiyo.co.kr")
@@ -31,11 +31,11 @@ public class YogiyoJsoup {
                 .header("accept", "text/html,application/xhtml+xml,application/xml")
                 .header("userAgent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)" +
                         " Chrome/102.0.5005.108 Whale/3.15.136.18 Safari/537.36")
-                .data("items", Integer.toString(items))
-                .data("category", category)
                 .data("lat", Double.toString(lat))
                 .data("lng", Double.toString(lng))
-                .data("order", "review_count")
+                .data("category", category)
+                .data("order", sort)
+                .data("items", Integer.toString(items))
                 .data("page", Integer.toString(page))
                 .timeout(5000)
                 .ignoreContentType(true)
@@ -160,7 +160,7 @@ public class YogiyoJsoup {
     }
 
     // 매장 이름 검색
-    public List<YRestaurant> getYSearchRestaurants(double lat, double lng, int items, int page, String search) {
+    public List<YRestaurant> getYSearchRestaurants(double lat, double lng, String search, String sort, int items, int page) {
         String url = "https://api.yogiyo.co.kr/discovery/search/all";
         Connection conn = Jsoup.connect(url)
                 .header("Host", "api.yogiyo.co.kr")
@@ -173,6 +173,7 @@ public class YogiyoJsoup {
                 .data("lng", Double.toString(lng))
                 .data("page", Integer.toString(page))
                 .data("search", search)
+                .data("order", sort)
                 .timeout(5000)
                 .ignoreContentType(true)
                 .method(Connection.Method.GET);
