@@ -36,3 +36,12 @@ GET localhost:8080/coupang/469509/menu
 ### 매장 검색
 GET localhost:8080/coupang/search-restaurants?lat=37.5479009261467&lng=127.062295814953&search=굽네치킨&sort=rank
 
+// 로그인 API
+### 네이버
+GET http://localhost:8080/oauth2/authorization/naver
+
+### 구글
+GET http://localhost:8080/oauth2/authorization/google
+
+### 카카오
+GET http://localhost:8080/oauth2/authorization/kakao
