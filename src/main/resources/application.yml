@@ -16,12 +16,12 @@ spring:
 #    password: abcd123456
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 
-    # url: jdbc:mysql://three-jeon-db.clhdotgui1vl.ap-northeast-2.rds.amazonaws.com:3306/three-jeon?serverTimezone=UTC&characterEncoding=UTF-8 # autoReconnect=true
-    # username: root # 운영시: three-jeon
-    # password: Threejeon1234!! # 운영시: threejeon123456@
-    url: jdbc:mysql://three-jeon-db.clhdotgui1vl.ap-northeast-2.rds.amazonaws.com:3306/three-jeon?serverTimezone=UTC&characterEncoding=UTF-8&autoReconnect=true
-    username: three-jeon
-    password: threejeon123456@
+    url: jdbc:mysql://three-jeon-db.clhdotgui1vl.ap-northeast-2.rds.amazonaws.com:3306/three-jeon-dev?serverTimezone=UTC&characterEncoding=UTF-8 # autoReconnect=true
+    username: root # 운영시: three-jeon
+    password: Threejeon1234!! # 운영시: threejeon123456@
+#    url: jdbc:mysql://three-jeon-db.clhdotgui1vl.ap-northeast-2.rds.amazonaws.com:3306/three-jeon?serverTimezone=UTC&characterEncoding=UTF-8&autoReconnect=true
+#    username: three-jeon # three-jeon 계정 권한: select, insert, update
+#    password: threejeon123456@
     driver-class-name: com.mysql.cj.jdbc.Driver
   mvc:
     pathmatch:
