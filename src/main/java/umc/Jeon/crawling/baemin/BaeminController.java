@@ -6,13 +6,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import umc.Jeon.config.exception.BaseException;
 import umc.Jeon.config.exception.BaseResponse;
-import umc.Jeon.crawling.User.User;
+import umc.Jeon.crawling.user.User;
 import umc.Jeon.crawling.baemin.model.*;
 
 import java.util.List;
 
-import static umc.Jeon.crawling.HashValues.HashValues.BAEMIN_CATEGORY;
-import static umc.Jeon.crawling.HashValues.HashValues.BAEMIN_SORT;
+import static umc.Jeon.crawling.mapping.HashValues.BAEMIN_CATEGORY;
+import static umc.Jeon.crawling.mapping.HashValues.BAEMIN_SORT;
 
 
 @RestController

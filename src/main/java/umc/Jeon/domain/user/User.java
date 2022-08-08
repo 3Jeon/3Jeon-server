@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class User extends BaseEntity {
     @Id
-    @Column(name = "user_id")
+    @Column(name = "userId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

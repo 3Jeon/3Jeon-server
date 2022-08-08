@@ -8,7 +8,7 @@ import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Component;
-import umc.Jeon.crawling.User.User;
+import umc.Jeon.crawling.user.User;
 import umc.Jeon.crawling.coupang.model.*;
 
 import java.io.IOException;

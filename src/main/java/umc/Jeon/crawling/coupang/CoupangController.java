@@ -6,12 +6,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import umc.Jeon.config.exception.BaseException;
 import umc.Jeon.config.exception.BaseResponse;
-import umc.Jeon.crawling.User.User;
+import umc.Jeon.crawling.user.User;
 import umc.Jeon.crawling.coupang.model.*;
 
 import java.util.List;
 
-import static umc.Jeon.crawling.HashValues.HashValues.*;
+import static umc.Jeon.crawling.mapping.HashValues.*;
 
 
 @RestController
