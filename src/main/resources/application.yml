@@ -6,12 +6,9 @@ spring:
 
   datasource:
     ## mySQL url, id, pw 설정해주세요
-    # url: jdbc:mysql://strategies.cpsdhebt0ibj.ap-northeast-2.rds.amazonaws.com:3306/strategies?serverTimezone=UTC&characterEncoding=UTF-8&autoReconnect=true
-    # username: root
-    # password: 3jeon-server
     url: jdbc:mysql://three-jeon-db.clhdotgui1vl.ap-northeast-2.rds.amazonaws.com:3306/three-jeon?serverTimezone=UTC&characterEncoding=UTF-8&autoReconnect=true
-    username: root
-    password: threejeon1234!
+    username: three-jeon
+    password: threejeon123456
     driver-class-name: com.mysql.cj.jdbc.Driver
   mvc:
     pathmatch:
@@ -33,3 +30,6 @@ spring:
 logging.level:
   org.hibernate.SQL: debug
   org.hibernate.type: trace
+
+jwt:
+  secret: '3jeon'
