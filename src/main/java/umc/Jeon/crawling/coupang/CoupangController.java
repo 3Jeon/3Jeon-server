@@ -48,14 +48,10 @@ public class CoupangController {
     @ApiOperation(value = "쿠팡이츠 매장 메뉴 조회", notes = "매장 ID로 메뉴 조회")
     @ResponseBody
     @GetMapping("/{restaurant-id}/menu")
-    public BaseResponse<CRestaurantMenus> getCMenus(@PathVariable(value = "restaurant-id") int restaurantId){
+    public BaseResponse<CRestaurantMenus> getCMenus(@PathVariable(value = "restaurant-id") int restaurantId
+    ){
         try{
-            // Test Data
-            User user= new User();
-            user.setLat(37.54766676253973);
-            user.setLng(127.0609096938018);
-
-            CRestaurantMenus cRestaurantMenus = coupangService.getCRestaurantMenus(restaurantId, user.getLat(), user.getLng());
+            CRestaurantMenus cRestaurantMenus = coupangService.getCRestaurantMenus(restaurantId);
 
             return new BaseResponse<>(cRestaurantMenus);
         } catch (BaseException e) {

@@ -51,13 +51,10 @@ public class BaeminController {
     @ResponseBody
     @GetMapping("/{restaurant-id}/menu")
     public BaseResponse<BRestaurantInfo> getYMenus(@PathVariable(value = "restaurant-id") int restaurantId){
+        double lat = 37.94766676253973;
+        double lng = 127.0609096938018;
         try{
-            // Test Data
-            User user= new User();
-            user.setLat(37.54766676253973);
-            user.setLng(127.0609096938018);
-
-            BRestaurantInfo bRestaurantInfo = baeminService.getBRestaurantInfo(restaurantId, user.getLat(), user.getLng());
+            BRestaurantInfo bRestaurantInfo = baeminService.getBRestaurantInfo(restaurantId, lat, lng);
 
             return new BaseResponse<>(bRestaurantInfo);
         } catch (BaseException e) {

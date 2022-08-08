@@ -22,7 +22,7 @@ public class User extends BaseEntity {
     @Column(length = 20)
     private String nickname;
 
-    @Column(length = 20)
+    @Column(length = 30)
     private String phone;
 
     //연령대

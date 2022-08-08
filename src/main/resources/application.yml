@@ -1,35 +1,60 @@
 server:
   port: 8080
+#  ssl:
+#    key-store: classpath:keystore_default.p12
+#    key-store-type: PKCS12
+#    key-store-password: threejeon1234!
+#    key-alias: spring
 spring:
   profiles:
     include: oauth
-
   datasource:
     ## mySQL url, id, pw 설정해주세요
-    # url: jdbc:mysql://strategies.cpsdhebt0ibj.ap-northeast-2.rds.amazonaws.com:3306/strategies?serverTimezone=UTC&characterEncoding=UTF-8&autoReconnect=true
-    # username: root
-    # password: 3jeon-server
+    # 제노 DB for local
+#    url: jdbc:mysql://zeno-mysql.cbvuwo5puy0l.ap-northeast-2.rds.amazonaws.com:3306/three-jeon?serverTimezone=UTC&characterEncoding=UTF-8&autoReconnect=true
+#    username: root
+#    password: abcd123456
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    # url: jdbc:mysql://three-jeon-db.clhdotgui1vl.ap-northeast-2.rds.amazonaws.com:3306/three-jeon?serverTimezone=UTC&characterEncoding=UTF-8 # autoReconnect=true
+    # username: root # 운영시: three-jeon
+    # password: Threejeon1234!! # 운영시: threejeon123456@
     url: jdbc:mysql://three-jeon-db.clhdotgui1vl.ap-northeast-2.rds.amazonaws.com:3306/three-jeon?serverTimezone=UTC&characterEncoding=UTF-8&autoReconnect=true
-    username: root
-    password: threejeon1234!
+    username: three-jeon
+    password: threejeon123456@
     driver-class-name: com.mysql.cj.jdbc.Driver
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-
   main:
     allow-circular-references: true
-
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop # 개발시 : create-drop, creat, update / 운영시 : validate, none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
       hibernate:
         format_sql: true
+    show-sql: true # 개발시 true 이후 false
+
 
   thymeleaf:
     enabled: false
 
-logging.level:
-  org.hibernate.SQL: debug
-  org.hibernate.type: trace
+logging:
+  logback:
+    rollingpolicy:
+      max-history: 30
+      max-file-size: 100MB
+      file-name-pattern: ${LOG_FILE}.%d{yyyy-MM-dd}-%i.log
+  level:
+    org.hibernate.SQL: info
+    org.hibernate.type: info
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS,Asia/Seoul
+
+jwt:
+  secret: '3jeon'
+
+# keystore_default.p12 <= pwd: threejeon1234! type: PKCS12
