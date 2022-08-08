@@ -1,0 +1,158 @@
+// 요기요
+### 요기요 매장 정보 조회 API
+# Parameters 사용
+GET https://www.yogiyo.co.kr/api/v1/restaurants-geo/?category=CHICKEN&items=5&lat=37.5027140&lng=127.06083008344&page=0&order=rank
+X-ApiSecret: fe5183cc3dea12bd0ce299cf110a75a2
+x-Apikey: iphoneap
+
+### 요기요 매장 정보 조회 API
+# Parameters 사용
+GET https://www.yogiyo.co.kr/api/v1/restaurants-geo/?category=도시락죽&items=5&lat=37.5027140&lng=127.06083008344&page=0
+X-ApiSecret: fe5183cc3dea12bd0ce299cf110a75a2
+x-Apikey: iphoneap
+
+
+### 요기요 매장의 메뉴 조회
+GET https://www.yogiyo.co.kr/api/v1/restaurants/313580/menu/
+Host: www.yogiyo.co.kr
+Accept-Encoding: br, gzip, deflate
+Accept-Language: ko-KR;q=1.0, en-US;q=0.9, ja-JP;q=0.8
+X-ApiSecret: fe5183cc3dea12bd0ce299cf110a75a2
+x-Apikey: iphoneap
+
+### 모든 카테고리 요기요 매장 정보 조회 API
+GET https://www.yogiyo.co.kr/api/v1/restaurants-geo/?lat=37.54775437002297&lng=127.06083008344&page=0&items=20
+X-ApiSecret: fe5183cc3dea12bd0ce299cf110a75a2
+x-Apikey: iphoneap
+
+### 요기요 매장 이름 검색
+GET https://api.yogiyo.co.kr/discovery/search/all?customer_id=656634031&items=60&lat=37.5479009261467&lng=127.062295814953&own_delivery=true&page=0&search=도시락&order=rank
+Host: api.yogiyo.co.kr
+Accept-Encoding: br, gzip, deflate
+Accept-Language: ko-KR;q=1.0, en-US;q=0.9, ja-JP;q=0.8
+Accept: */*
+Connection: keep-alive
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2NTgxNDQ3MjIsImV4cCI6MTY1ODE1MTkyMiwicGxhdGZvcm0iOiJZR1kiLCJyb2xlIjoidXNlciIsInN1Yl9pZCI6IjY1NjYzNDAzMSIsImJhc2VfdXJsIjoiaHR0cHM6Ly93d3cueW9naXlvLmNvLmtyIn0.XJOYasISMbv4SchS6bqgaUf-VxuMmQQfhlHrLk6oMkJ8ATSRTfZ4bXEihx31krI6aGpiFw3B9UekYgAyco2CVZ2LBx2WClTov8HmDqZxLUtR_thWaD7FBipJGytpryywX8u9BoXVg1Gs1GsWX5VV2hoAbhOagxMWE8UWUawyeP-PxOqJMJBxbwePjnZRwQg2QGUIAdCqeO_zntLxEajPcPUtHvaW7Y-eYST1YK3UvWxGNwwtdecBLqHiWSp5RofE5ZTpCqH14Bc7GI-eF7fy1XoaSzRrlx15DeqXQq4AH0vd-I4V6yuNRftQ6GpW5Ogc0VNmlRNPkSJiY2DvrGcqgg
+User-Agent: iOS/iPhone7,2/12.4.5/yogiyo-ios-6.64.0
+X-ApiSecret: fe5183cc3dea12bd0ce299cf110a75a2
+X-ApiKey: iphoneap
+
+
+
+// 배달의 민족
+### 배민 사용자 조회 API
+GET https://location-api.baemin.com/v1/addresses/current?adid=8187CDE8-4C55-47B0-BAB0-2669BB3FF747&appver=11.26.1&carrier=&deviceModel=iPhone7%2C2&dvc_uniq_id=D8526444-59E1-4610-A277-0557E420A0D6&dvcid=OPUD01BCCF1C-8E8F-47CA-B891-BC50A2F274C4&memberNo=000000000000&oscd=1&osver=12.400000&sessionid=3dde886418b8764005f9a7dfaa736161&site=7jWXRELC2e HTTP/1.1
+Host: location-api.baemin.com
+Accept-Encoding: br, gzip, deflate
+Cookie: __cf_bm=JMMH5nzT5G54LO3NBf4k86YWWTTeE0CK4gkgarAKUww-1657632803-0-AW7hJGuC6Pw3nB/JaEkTTrvLMXuvqxH+Tbe8Jryi3hlBQEcViszL+bQ3b4hxr3ji1oye+rWVrGEYiqEgGN7KeB/sQXN+J5V/EYWzY23eX0sj
+Connection: keep-alive
+Accept: */*
+Carrier:
+User-Agent: iph1_11.26.1
+Authorization: Bearer guest
+Accept-Language: ko-kr
+USER-BAEDAL: LVtTvgJXl2UgjbU/AmqoAmVIC4dZgbT33ods0fRIJOtUO0716WYdQYdxyzca1BgITliCsm1dw1+QIUJaP0KYQfK7DpZ+ebzoieyxFgK02OCEpQbnWRttWII0x5H87sWYnCdtpZ3nZVolXxyFHk8m6KP1L2Y4uo6bax4c+5m3zAaIyj+YU/xdeRAvluN+ZHl5ChOIXkq8mDTgxEzLqvAUpzezgJC/rwdnjb2bCAh0q9g=
+
+### 68. 배민 사용자 조회 API
+// dvcid : 사용자 디바이스 ID // memberNo : 사용자 ID ( 비회원: 000000000000 )
+GET https://location-api.baemin.com/v1/addresses/current?dvcid=OPUD01BCCF1C-8E8F-47CA-B891-BC50A2F274C4&memberNo=000000000000
+Authorization: Bearer guest
+
+### 85. 배민 주문 정렬 기준 조회 API
+GET https://shopdp-api.baemin.com/display-groups/BAEMIN_DELIVERY_HOME?adid=8187CDE8-4C55-47B0-BAB0-2669BB3FF747&appver=11.26.1&carrier=&deviceModel=iPhone7%2C2&dvc_uniq_id=D8526444-59E1-4610-A277-0557E420A0D6&dvcid=OPUD01BCCF1C-8E8F-47CA-B891-BC50A2F274C4&latitude=37.54766676253973&longitude=127.0609096938018&oscd=1&osver=12.400000&sessionid=3dde886418b8764005f9a7dfaa736161&site=7jWXRELC2e HTTP/1.1
+Host: shopdp-api.baemin.com
+Cookie: __cf_bm=JMMH5nzT5G54LO3NBf4k86YWWTTeE0CK4gkgarAKUww-1657632803-0-AW7hJGuC6Pw3nB/JaEkTTrvLMXuvqxH+Tbe8Jryi3hlBQEcViszL+bQ3b4hxr3ji1oye+rWVrGEYiqEgGN7KeB/sQXN+J5V/EYWzY23eX0sj
+Connection: keep-alive
+Accept: */*
+Carrier:
+User-Agent: iph1_11.26.1
+Accept-Language: ko-kr
+Accept-Encoding: br, gzip, deflate
+USER-BAEDAL: LVtTvgJXl2UgjbU/AmqoAmVIC4dZgbT33ods0fRIJOtUO0716WYdQYdxyzca1BgITliCsm1dw1+QIUJaP0KYQfK7DpZ+ebzoieyxFgK02OCEpQbnWRttWII0x5H87sWYnCdtpZ3nZVolXxyFHk8m6KP1L2Y4uo6bax4c+5m3zAaIyj+YU/xdeRAvluN+ZHl5ChOIXkq8mDTgxEzLqvAUpzezgJC/rwdnjb2bCAh0q9g=
+
+### 91. 배민 카테고리 별 주문 가능 점포 조회(점포 개수 제한?)
+GET https://shopdp-api.baemin.com/v1/BAEMIN/curations?displayCategory=CHICKEN&latitude=37.54766676253973&longitude=127.0609096938018&sorts=SORT__ORDER
+Host: shopdp-api.baemin.com
+User-Agent: iph1_11.26.1
+USER-BAEDAL: baemin
+
+### 91. 배민 카테고리 별 주문 가능 점포 조회
+// displayCategory: 카테고리 // latitude: 위도, longitude: 경도 // distance: 거리 구분 // sort
+GET https://shopdp-api.baemin.com/v1/BAEMIN/curations?displayCategory=찜탕찌개&latitude=37.54766676253973&longitude=127.0609096938018&sort=SORT__DISTANCE&distance=2
+User-Agent: iph1_11.26.1
+
+### 369. 배민 매장 메뉴 조회
+// PathVarialbe: 매장 번호(ex:10724672) // lat: 위도, lng: 경도
+GET https://shopdp-api.baemin.com/v8/shop/13124885/detail?lat=37.54766676253973&lng=127.0609096938018
+
+### 배민 매장명 검색으로 조회 API
+GET https://search-gateway.baemin.com/v1/search?appver=11.26.1&baeminDeliverySort=SORT__DEFAULT&currentTab=BAEMIN_DELIVERY&dvcid=BAEMIN&isBmartRegion=0&isFirstRequest=1&latitude=37.54766676253973&longitude=127.0609096938018&keyword=자담치킨&limit=30
+USER-BAEDAL: baemin
+
+### 배민 매장명 검색으로 조회 API - t1
+GET https://search-gateway.baemin.com/v1/search?appver=11.26.1&currentTab=BAEMIN_DELIVERY&isBmartRegion=0&isFirstRequest=1&latitude=37.54766676253973&longitude=127.0609096938018&keyword=자담치킨&limit=30
+USER-BAEDAL: baemin
+
+/// 쿠팡이츠
+### 쿠팡이츠 카테고리 별 매장 조회
+GET https://api.coupangeats.com/endpoint/store.get_clp?categoryId=10
+Host: api.coupangeats.com
+X-EATS-OS-TYPE: IOS
+User-Agent: Eats-AppStore/1.3.50 (com.coupang.coupang-eats; build:171; iOS 12.4.5) Alamofire/5.4.4
+X-EATS-DEVICE-ID: com.coupang.coupang-eats
+X-EATS-PCID: com.coupang.coupang-eats
+X-EATS-LOCATION: {"latitude" : 37.547521784127511, "longitude" : 127.06088821638144}
+X-EATS-APP-VERSION: 1.3.50
+X-EATS-LOCALE: ko
+
+### 쿠팡이츠 매장명 검색 API
+GET https://api.coupangeats.com/endpoint/store.get_search?keyWord=치킨처럼&latitude=37.547511130279254&longitude=127.06088821638144 HTTP/1.1
+Host: api.coupangeats.com
+X-EATS-OS-TYPE: iOS
+User-Agent: Eats-AppStore/1.3.50 (com.coupang.coupang-eats; build:171; iOS 12.4.5) Alamofire/5.4.4
+X-EATS-DEVICE-ID: com.coupang.coupang-eats
+X-EATS-PCID: com.coupang.coupang-eats
+X-EATS-LOCALE: ko
+X-EATS-LOCATION: {"latitude" : 37.547511130279254, "longitude" : 127.06088821638144}
+X-EATS-APP-VERSION: 1.3.50
+
+### 쿠팡이츠 매장의 메뉴 조회
+GET https://api.coupangeats.com/endpoint/store.get_store_with_menu?storeId=322190
+Host: api.coupangeats.com
+X-EATS-OS-TYPE: iOS
+User-Agent: Eats-AppStore/1.3.50 (com.coupang.coupang-eats; build:171; iOS 12.4.5) Alamofire/5.4.4
+X-EATS-DEVICE-ID: com.coupang.coupang-eats
+X-EATS-PCID: com.coupang.coupang-eats
+X-EATS-LOCALE: ko
+X-EATS-LOCATION: {"latitude" : 37.547511130279254, "longitude" : 180.06088821638144}
+X-EATS-APP-VERSION: 1.3.50
+X-EATS-DEVICE-DENSITY: X2
+
+
+### 쿠팡이츠 카테고리 별 매장 조회
+GET https://api.coupangeats.com/endpoint/store.get_clp?categoryId=10&sort=recentlyOpen
+X-EATS-OS-TYPE: IOS
+X-EATS-DEVICE-ID: com.coupang.coupang-eats
+X-EATS-PCID: com.coupang.coupang-eats
+X-EATS-LOCALE: ko
+X-EATS-LOCATION: {"latitude" : 37.547521784127511, "longitude" : 127.06088821638144}
+X-EATS-APP-VERSION: 1.3.50
+
+### 쿠팡이츠 매장명 검색 API
+GET https://api.coupangeats.com/endpoint/store.get_search?keyWord=굽네치킨
+X-EATS-OS-TYPE: iOS
+X-EATS-DEVICE-ID: com.coupang.coupang-eats
+X-EATS-PCID: com.coupang.coupang-eats
+X-EATS-LOCALE: ko
+X-EATS-LOCATION: {"latitude" : 37.547511130279254, "longitude" : 127.06088821638144}
+X-EATS-APP-VERSION: 1.3.50
+
+### 쿠팡이츠 매장의 메뉴 조회
+GET https://api.coupangeats.com/endpoint/store.get_store_with_menu?storeId=322190
+X-EATS-OS-TYPE: iOS
+X-EATS-DEVICE-ID: com.coupang.coupang-eats
+X-EATS-PCID: com.coupang.coupang-eats
+X-EATS-LOCALE: ko
+X-EATS-LOCATION: {"latitude" : 37.547511130279254, "longitude" : 180.06088821638144}
+X-EATS-APP-VERSION: 1.3.50
+X-EATS-DEVICE-DENSITY: X2
