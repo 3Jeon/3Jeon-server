@@ -1,8 +1,10 @@
 # 3Jeon-server
 
+# 지도 API
 ### 네이버 지도 경로 탐색
 - GET https://threejeon.shop/map/?start-lat=37.359708&start-lng=127.1058342&goal-lat=35.179470&goal-lng=129.075986
 
+# 매장 API
 ### Categorys : "1인분", "한식", "일식", "중식", "양식", "치킨", "분식", "고기구이", "도시락", "야식", "패스트푸드", "디저트", "아시안푸드"  
 ### Sort : "rank", "review_avg", "review_count", "distance"  
 ## 요기요
@@ -34,3 +36,5 @@ GET https://threejeon.shop/coupang/469509/menu
 
 ### 매장 검색(키워드: 굽네치킨, 정렬: 리뷰개수)
 GET https://threejeon.shop/coupang/search-restaurants?lat=37.5479009261467&lng=127.062295814953&search=굽네치킨&sort=review_count
+
+# 로그인 API
