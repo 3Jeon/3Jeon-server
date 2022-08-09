@@ -11,7 +11,7 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 import umc.Jeon.config.auth.dto.OAuthAttributes;
 import umc.Jeon.config.auth.dto.SessionUser;
-import umc.Jeon.domain.user.User;
+import umc.Jeon.config.database.user.model.User;
 import umc.Jeon.repository.UserRepository;
 
 import javax.servlet.http.HttpSession;

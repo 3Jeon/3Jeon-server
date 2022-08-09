@@ -21,7 +21,7 @@ GET threejeon.shop/yogiyo/search-restaurants?lat=37.5479009261467&lng=127.062295
 GET threejeon.shop/baemin/restaurant?lat=37.5479009261467&lng=127.062295814953&category=고기구이&sort=distance
 
 ### 가게의 모든 메뉴 조회
-GET threejeon.shop/baemin/13225239/menu
+GET threejeon.shop/baemin/13401461/menu
 
 ### 매장 검색
 GET threejeon.shop/baemin/search-restaurants?lat=37.5479009261467&lng=127.062295814953&search=굽네치킨&sort=rank
