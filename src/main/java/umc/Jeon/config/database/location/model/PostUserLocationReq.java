@@ -1,4 +1,4 @@
-package umc.Jeon.config.database.user.model;
+package umc.Jeon.config.database.location.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

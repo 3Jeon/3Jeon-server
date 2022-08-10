@@ -1,4 +1,4 @@
-package umc.Jeon.config.database.user.model;
+package umc.Jeon.config.database.location.model;
 
 import lombok.*;
 import umc.Jeon.config.database.BaseEntity;
@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Location extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long locationId;
+    private long id;
     @Column(nullable = false)
     private long userId;
     @Column(nullable = false)
