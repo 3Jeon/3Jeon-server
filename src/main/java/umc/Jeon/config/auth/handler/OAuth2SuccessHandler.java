@@ -6,7 +6,7 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationSu
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;
 import umc.Jeon.config.auth.dto.SessionUser;
-import umc.Jeon.config.database.user.model.User;
+import umc.Jeon.database.user.model.User;
 import umc.Jeon.repository.UserRepository;
 import umc.Jeon.config.auth.jwt.JwtService;
 

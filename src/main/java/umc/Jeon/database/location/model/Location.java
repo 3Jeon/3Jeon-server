@@ -1,7 +1,7 @@
-package umc.Jeon.config.database.location.model;
+package umc.Jeon.database.location.model;
 
 import lombok.*;
-import umc.Jeon.config.database.BaseEntity;
+import umc.Jeon.database.BaseEntity;
 
 import javax.persistence.*;
 

@@ -1,4 +1,4 @@
-package umc.Jeon.config.database;
+package umc.Jeon.database;
 
 import lombok.Getter;
 import lombok.Setter;

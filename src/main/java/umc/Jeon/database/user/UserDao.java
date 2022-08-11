@@ -1,10 +1,9 @@
-package umc.Jeon.config.database.user;
+package umc.Jeon.database.user;
 
-import com.nimbusds.jose.crypto.opts.UserAuthenticationRequired;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import umc.Jeon.config.database.user.model.User;
+import umc.Jeon.database.user.model.User;
 import umc.Jeon.repository.UserRepository;
 
 import java.util.Optional;

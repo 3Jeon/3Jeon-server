@@ -2,7 +2,7 @@ package umc.Jeon.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import umc.Jeon.config.database.location.model.Location;
+import umc.Jeon.database.location.model.Location;
 
 import java.util.List;
 import java.util.Optional;
