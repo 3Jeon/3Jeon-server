@@ -19,7 +19,6 @@ spring:
             client-name: Naver
 
           kakao:
-            #client-id == REST api KEY
             client-id: b51941d6589770df240008eb26f02f17
             client-secret: s8eEfWkEMWwQelLdIZv2dqmEN3DwCZc6
             redirect-uri: "https://threejeon.shop/{action}/oauth2/code/{registrationId}"

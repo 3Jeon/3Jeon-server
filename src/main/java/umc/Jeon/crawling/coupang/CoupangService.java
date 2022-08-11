@@ -32,9 +32,9 @@ public class CoupangService {
         }
     }
 
-    public CRestaurantMenus getCRestaurantMenus(long id, double lat, double lng) throws BaseException {
+    public CRestaurantMenus getCRestaurantMenus(long id) throws BaseException {
         try{
-            CRestaurantMenus cRestaurantMenus = coupangJsoup.getCRestaurantMenus(id, lat, lng);
+            CRestaurantMenus cRestaurantMenus = coupangJsoup.getCRestaurantMenus(id);
 
             return cRestaurantMenus;
         } catch (Exception exception){

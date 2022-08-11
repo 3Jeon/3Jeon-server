@@ -6,12 +6,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import umc.Jeon.config.exception.BaseException;
 import umc.Jeon.config.exception.BaseResponse;
-import umc.Jeon.crawling.User.User;
+import umc.Jeon.crawling.user.User;
 import umc.Jeon.crawling.coupang.model.*;
 
 import java.util.List;
 
-import static umc.Jeon.crawling.HashValues.HashValues.*;
+import static umc.Jeon.crawling.mapping.HashValues.*;
 
 
 @RestController
@@ -48,14 +48,10 @@ public class CoupangController {
     @ApiOperation(value = "쿠팡이츠 매장 메뉴 조회", notes = "매장 ID로 메뉴 조회")
     @ResponseBody
     @GetMapping("/{restaurant-id}/menu")
-    public BaseResponse<CRestaurantMenus> getCMenus(@PathVariable(value = "restaurant-id") int restaurantId){
+    public BaseResponse<CRestaurantMenus> getCMenus(@PathVariable(value = "restaurant-id") int restaurantId
+    ){
         try{
-            // Test Data
-            User user= new User();
-            user.setLat(37.54766676253973);
-            user.setLng(127.0609096938018);
-
-            CRestaurantMenus cRestaurantMenus = coupangService.getCRestaurantMenus(restaurantId, user.getLat(), user.getLng());
+            CRestaurantMenus cRestaurantMenus = coupangService.getCRestaurantMenus(restaurantId);
 
             return new BaseResponse<>(cRestaurantMenus);
         } catch (BaseException e) {
