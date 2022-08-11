@@ -1,14 +1,11 @@
-package umc.Jeon.config.database.location;
+package umc.Jeon.database.location;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import umc.Jeon.config.database.location.model.Location;
-import umc.Jeon.config.database.location.model.PostUserLocationReq;
-import umc.Jeon.config.database.user.UserDao;
-import umc.Jeon.config.database.user.model.User;
+import umc.Jeon.database.location.model.Location;
+import umc.Jeon.database.location.model.PostUserLocationReq;
+import umc.Jeon.database.user.UserDao;
 import umc.Jeon.repository.LocationRepository;
-import umc.Jeon.repository.UserRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -39,22 +36,22 @@ public class LocationDao {
         boolean exist = locationRepository.existsByUserId(userId);
 
         Location location;
-        if (exist){
+        if (exist){ // 데이터 존재 O
             location = Location.builder()
                     .userId(userId)
                     .lat(postUserLocationReq.getLat())
                     .lng(postUserLocationReq.getLat())
                     .address(postUserLocationReq.getAddress())
-                    .defaultAddress(true)
+                    .defaultAddress(false)
                     .status(true)
                     .build();
-        } else  {
+        } else  { // 데이터 존재 X
             location = Location.builder()
                     .userId(userId)
                     .lat(postUserLocationReq.getLat())
                     .lng(postUserLocationReq.getLng())
                     .address(postUserLocationReq.getAddress())
-                    .defaultAddress(false)
+                    .defaultAddress(true)
                     .status(true)
                     .build();
         }
@@ -62,11 +59,13 @@ public class LocationDao {
         return true;
     }
 
-    // 기본 주소 수정 하기
+    // 새로운 주소 추가후 기본 주소로 변경 하기
     public Location changeUserDefaultLocation(long userId, PostUserLocationReq postUserLocationReq){
         Location prevLocation = getUserDefaultLocation(userId);
-        prevLocation.setDefaultAddress(false);
-        locationRepository.save(prevLocation);
+        if (prevLocation != null) {
+            prevLocation.setDefaultAddress(false);
+            locationRepository.save(prevLocation);
+        }
 
         Location newDefaultLocation = Location.builder()
                 .userId(userId)
