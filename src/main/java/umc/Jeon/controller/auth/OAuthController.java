@@ -15,6 +15,7 @@ public class OAuthController {
     @ApiOperation(value = "로그인 완료후 리다이렉트")
     @GetMapping("/auth")
     public BaseResponse<OAuthResponse> jwtResponse(@RequestParam String jwt, @RequestParam Long id) {
+
         return new BaseResponse<>(new OAuthResponse(id,jwt));
     }
 

@@ -1,4 +1,4 @@
-package umc.Jeon.crawling.User;
+package umc.Jeon.crawling.user;
 
 import lombok.Getter;
 import lombok.Setter;

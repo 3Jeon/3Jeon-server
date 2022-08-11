@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'umc'
-version = '0.0.5-SNAPSHOT'
+version = '0.1.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 configurations {
@@ -62,12 +62,11 @@ dependencies {
 	//oauth
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
-	tasks.named('test') {
-		useJUnitPlatform()
-	}
-
 	//Geocoding
 	// https://mvnrepository.com/artifact/com.google.code.geocoder-java/geocoder-java
 	implementation group: 'com.google.code.geocoder-java', name: 'geocoder-java', version: '0.16'
 
+	tasks.named('test') {
+		useJUnitPlatform()
+	}
 }

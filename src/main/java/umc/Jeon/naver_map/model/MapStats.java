@@ -1,4 +1,4 @@
-package umc.Jeon.navermap.model;
+package umc.Jeon.naver_map.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

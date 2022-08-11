@@ -2,7 +2,7 @@ package umc.Jeon.config.auth.dto;
 
 import lombok.Builder;
 import lombok.Getter;
-import umc.Jeon.domain.user.User;
+import umc.Jeon.config.database.user.model.User;
 
 import java.util.Map;
 
@@ -84,6 +84,7 @@ public class OAuthAttributes {
                 .age(age)
                 .nickname(nickname)
                 .phone(phone)
+                .status(true) // 유저 존재
                 .build();
     }
 }

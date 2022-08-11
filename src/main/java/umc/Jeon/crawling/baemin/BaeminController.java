@@ -6,13 +6,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import umc.Jeon.config.exception.BaseException;
 import umc.Jeon.config.exception.BaseResponse;
-import umc.Jeon.crawling.User.User;
+import umc.Jeon.crawling.user.User;
 import umc.Jeon.crawling.baemin.model.*;
 
 import java.util.List;
 
-import static umc.Jeon.crawling.HashValues.HashValues.BAEMIN_CATEGORY;
-import static umc.Jeon.crawling.HashValues.HashValues.BAEMIN_SORT;
+import static umc.Jeon.crawling.mapping.HashValues.BAEMIN_CATEGORY;
+import static umc.Jeon.crawling.mapping.HashValues.BAEMIN_SORT;
 
 
 @RestController
@@ -51,13 +51,10 @@ public class BaeminController {
     @ResponseBody
     @GetMapping("/{restaurant-id}/menu")
     public BaseResponse<BRestaurantInfo> getYMenus(@PathVariable(value = "restaurant-id") int restaurantId){
+        double lat = 37.94766676253973;
+        double lng = 127.0609096938018;
         try{
-            // Test Data
-            User user= new User();
-            user.setLat(37.54766676253973);
-            user.setLng(127.0609096938018);
-
-            BRestaurantInfo bRestaurantInfo = baeminService.getBRestaurantInfo(restaurantId, user.getLat(), user.getLng());
+            BRestaurantInfo bRestaurantInfo = baeminService.getBRestaurantInfo(restaurantId, lat, lng);
 
             return new BaseResponse<>(bRestaurantInfo);
         } catch (BaseException e) {

@@ -2,7 +2,7 @@ package umc.Jeon.config.auth.dto;
 
 
 import lombok.Getter;
-import umc.Jeon.domain.user.User;
+import umc.Jeon.config.database.user.model.User;
 
 import java.io.Serializable;
 

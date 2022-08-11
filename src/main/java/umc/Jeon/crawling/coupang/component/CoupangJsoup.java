@@ -8,7 +8,7 @@ import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Component;
-import umc.Jeon.crawling.User.User;
+import umc.Jeon.crawling.user.User;
 import umc.Jeon.crawling.coupang.model.*;
 
 import java.io.IOException;
@@ -62,15 +62,15 @@ public class CoupangJsoup {
     }
 
     // 매장 정보 및 메뉴 불러오기
-    public CRestaurantMenus getCRestaurantMenus(long id, double lat, double lng) {
+    public CRestaurantMenus getCRestaurantMenus(long id) {
         String url = "https://api.coupangeats.com/endpoint/store.get_store_with_menu";
-        String curLocation = String.format("{ \"latitude\" : %s, \"longitude\" : %s }", lat, lng);
+//        String curLocation = String.format("{ \"latitude\" : %s, \"longitude\" : %s }", lat, lng);
         Connection conn = Jsoup.connect(url)
                 .header("X-EATS-OS-TYPE", "IOS")
                 .header("X-EATS-DEVICE-ID", "com.coupang.coupang-eats")
                 .header("X-EATS-PCID", "com.coupang.coupang-eats")
                 .header("X-EATS-LOCALE", "ko")
-                .header("X-EATS-LOCATION", curLocation)
+//                .header("X-EATS-LOCATION", curLocation)
                 .header("X-EATS-APP-VERSION", X_EATS_APP_VERSION)
                 .header("X-EATS-DEVICE-DENSITY", "X2")
                 .data("storeId", Long.toString(id))
@@ -232,15 +232,5 @@ public class CoupangJsoup {
 //            cMenus.add(cMenu);
         }
         return dishList;
-    }
-
-    public static void main(String[] args) {
-        CoupangJsoup coupangJsoup = new CoupangJsoup();
-        User user = new User();
-        user.setLat(37.54766676253973);
-        user.setLng(127.0609096938018);
-        var a = coupangJsoup.getCRestaurants(user.getLat(), user.getLng(), "10", "rank");
-        var b = coupangJsoup.getCRestaurantMenus(469509, user.getLat(), user.getLng());
-        var c = coupangJsoup.getCSearchRestaurants(user.getLat(), user.getLng(), "굽네치킨", "rank");
     }
 }
