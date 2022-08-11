@@ -6,9 +6,9 @@ spring:
 
   datasource:
     ## mySQL url, id, pw 설정해주세요
-     url: jdbc:mysql://three-jeon-db.clhdotgui1vl.ap-northeast-2.rds.amazonaws.com:3306/three-jeon?serverTimezone=UTC&characterEncoding=UTF-8&autoReconnect=true
-    username: three-jeon
-    password: threejeon123456@
+    url: jdbc:mysql://three-jeon-db.clhdotgui1vl.ap-northeast-2.rds.amazonaws.com:3306/three-jeon?serverTimezone=UTC&characterEncoding=UTF-8&autoReconnect=true
+    username: root
+    password: Threejeon1234!!
     driver-class-name: com.mysql.cj.jdbc.Driver
   mvc:
     pathmatch:
