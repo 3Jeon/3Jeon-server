@@ -45,3 +45,17 @@ GET http://localhost:8080/oauth2/authorization/google
 
 ### 카카오
 GET http://localhost:8080/oauth2/authorization/kakao
+
+// 사용자 주소 API
+### 주소 추가 API
+POST http://localhost:8080/location/add?userId=1
+Content-Type: application/json
+
+{
+  "lat":"37.5479009461467",
+  "lng":"127.062295814953",
+  "address": "house"
+}
+
+### 기본주소 불러오기
+GET http://localhost:8080/location/default?userId=1

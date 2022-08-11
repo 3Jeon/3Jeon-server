@@ -30,7 +30,7 @@ spring:
     allow-circular-references: true
   jpa:
     hibernate:
-      ddl-auto: create-drop # 개발시 : create-drop, creat, update / 운영시 : validate, none
+      ddl-auto: update # 개발시 : create-drop, creat, update / 운영시 : validate, none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
