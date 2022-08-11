@@ -8,16 +8,18 @@ import com.google.code.geocoder.model.*;
 import java.io.IOException;
 
 public class GoogleMapApi {
-    private static GoogleMapApi CommonUtil;
+    private GoogleMapApi CommonUtil;
 
-    public static Float[] findGeoPoint(String location) {
+    public Float[] findGeoPoint(String location) {
 
         if (location == null)
             return null;
 
         // setAddress : 변환하려는 주소 (경기도 성남시 분당구 등)
         // setLanguate : 인코딩 설정
-        GeocoderRequest geocoderRequest = new GeocoderRequestBuilder().setAddress(location).setLanguage("ko").getGeocoderRequest();
+        GeocoderRequest geocoderRequest = new GeocoderRequestBuilder().setAddress(location)
+                .setLanguage("ko")
+                .getGeocoderRequest();
 
         try {
             Geocoder geocoder = new Geocoder();
@@ -37,12 +39,11 @@ public class GoogleMapApi {
         }
         return null;
     }
-    private static GeocoderRequest newGeocoderRequestBuilder() {
-        String location = "대전광역시 유성구 궁동";
-        Float[] coords = CommonUtil.findGeoPoint(location);
 
-        System.out.println(location + ": " + coords[0] + ", " + coords[1]);
-
-        return null;
+    public static void main(String [] args){
+        GoogleMapApi googleMapApi = new GoogleMapApi();
+        String location = "경기도 성남시 분당구 판교동";
+        Float [] geo = googleMapApi.findGeoPoint(location);
+        System.out.println(location +": " + geo[0] + ", " + geo[1]);
     }
 }
