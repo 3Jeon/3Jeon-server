@@ -11,6 +11,6 @@ import java.util.Optional;
 public interface LocationRepository extends JpaRepository<Location, Long> {
     boolean existsByUserId(long userId);
     Optional<Location> findByUserIdAndDefaultAddress(long userId, boolean defaultAddress);
-    Optional<List<Location>> findByUserIdAndStatusOrderByUpdatedAtDesc(long userId, boolean status);
-
+    Optional<Location> findByUserIdAndStatusAndDefaultAddress(long userId, boolean status, boolean defaultAddress);
+    Optional<List<Location>> findByUserIdAndStatusAndDefaultAddressOrderByUpdatedAtDesc(long userId, boolean status, boolean defaultAddress);
 }

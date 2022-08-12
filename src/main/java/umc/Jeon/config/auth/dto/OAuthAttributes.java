@@ -84,7 +84,7 @@ public class OAuthAttributes {
                 .age(age)
                 .nickname(nickname)
                 .phone(phone)
-                .status(true) // 유저 존재
+                .status(true)
                 .build();
     }
 }

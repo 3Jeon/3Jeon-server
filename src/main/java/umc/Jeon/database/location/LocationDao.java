@@ -7,6 +7,8 @@ import umc.Jeon.database.location.model.PostUserLocationReq;
 import umc.Jeon.database.user.UserDao;
 import umc.Jeon.repository.LocationRepository;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,9 +25,22 @@ public class LocationDao {
     }
 
     // 유저가 저장한 주소 목록 불러오기
-    public List<Location> getUserLocationsRes(long userId) {
-        Optional<List<Location>> locations = locationRepository.findByUserIdAndStatusOrderByUpdatedAtDesc(userId, true);
-        return locations.orElse(null);
+    public List<Location> getUserLocations(long userId) {
+        List<Location> locationList = new ArrayList<>();
+        Optional<Location> defaultLocation = locationRepository
+                .findByUserIdAndStatusAndDefaultAddress(userId, true, true);
+        if (defaultLocation.orElse(null) != null)
+            locationList.add(defaultLocation.get());
+
+        Optional<List<Location>> locations = locationRepository
+                .findByUserIdAndStatusAndDefaultAddressOrderByUpdatedAtDesc(userId, true, false);
+        if (locations.orElse(null) != null){
+            Iterator<Location> iterator = locations.get().iterator();
+            while(iterator.hasNext())
+                locationList.add(iterator.next());
+        }
+
+        return locationList;
     }
 
     // 유저의 주소 추가 하기
@@ -83,6 +98,9 @@ public class LocationDao {
     public void deleteUserLocation(long id){
         Optional<Location> delLocation = locationRepository.findById(id);
         Location location = delLocation.orElse(null);
-        location.setStatus(false);
+        if (location != null) {
+            location.setStatus(false);
+            locationRepository.save(location);
+        }
     }
 }

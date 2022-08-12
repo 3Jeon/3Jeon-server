@@ -9,6 +9,8 @@ import umc.Jeon.config.exception.BaseResponse;
 import umc.Jeon.database.location.model.Location;
 import umc.Jeon.database.location.model.PostUserLocationReq;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/location")
@@ -30,11 +32,15 @@ public class LocationController {
             notes = "유저의 주소 정보를 이용하여 주소 추가(저장된 주소가 없으면 기본 주소로 설정")
     @ResponseBody
     @PostMapping("/add")
-    public BaseResponse<Boolean> setUserLocation(@RequestParam long userId,
+    public BaseResponse<String> setUserLocation(@RequestParam long userId,
                                                  @RequestBody PostUserLocationReq postUserLocationReq){
         try{
             boolean result = locationService.setUserLocation(userId, postUserLocationReq);
-            return new BaseResponse<>(result);
+            String message;
+            if (result)
+                message = "주소가 추가 되었습니다.";
+            else message = "주소 추가에 실패 하였습니다.";
+            return new BaseResponse<>(message);
         } catch (BaseException exception){
             return new BaseResponse<>(exception.getStatus());
         }
@@ -49,6 +55,30 @@ public class LocationController {
             Location newDefaultLocation = locationService.changeUserDefaultLocation(userId, postUserLocationReq);
             return new BaseResponse<>(newDefaultLocation);
         } catch (BaseException exception){
+            return new BaseResponse<>(exception.getStatus());
+        }
+    }
+
+    @ApiOperation(value="유저의 지정된 주소 삭제", notes = "해당 유저의 지정된 주소 status를 false로 변경(삭제 처리)")
+    @ResponseBody
+    @PatchMapping("/delete")
+    public BaseResponse<String> deleteUserLocation(@RequestParam(value = "locationId") long id){
+        try{
+            locationService.deleteUserLocation(id);
+            return new BaseResponse<>("주소를 삭제 하였습니다.");
+        } catch (BaseException exception) {
+            return new BaseResponse<>(exception.getStatus());
+        }
+    }
+
+    @ApiOperation(value="유저가 저장한 주소 목록 호출", notes = "해당 유저가 저장한 활성화된 주소 목록 호출")
+    @ResponseBody
+    @GetMapping("/list")
+    public BaseResponse<List<Location>> getUserLocations(@RequestParam long userId){
+        try{
+            List<Location> locations = locationService.getUserLocations(userId);
+            return new BaseResponse<>(locations);
+        } catch (BaseException exception) {
             return new BaseResponse<>(exception.getStatus());
         }
     }

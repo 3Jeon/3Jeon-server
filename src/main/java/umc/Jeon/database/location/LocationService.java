@@ -9,6 +9,8 @@ import umc.Jeon.config.exception.BaseResponseStatus;
 import umc.Jeon.database.location.model.Location;
 import umc.Jeon.database.location.model.PostUserLocationReq;
 
+import java.util.List;
+
 import static umc.Jeon.config.exception.BaseResponseStatus.*;
 
 @Service
@@ -29,8 +31,14 @@ public class LocationService {
     public boolean setUserLocation(long userId, PostUserLocationReq postUserLocationReq) throws BaseException{
         try {
             boolean result = locationDao.setUserLocation(userId, postUserLocationReq);
-            return result;
-        } catch (Exception exception){
+            if (!result)
+                throw new BaseException(USERS_EMPTY_USER_ID);
+            return true;
+        }
+        catch (BaseException exception){
+            throw new BaseException(USERS_EMPTY_USER_ID);
+        }
+        catch (Exception exception){
             throw new BaseException(DATABASE_ERROR);
         }
     }
@@ -38,6 +46,21 @@ public class LocationService {
         try{
             Location newDefaultLocation = locationDao.changeUserDefaultLocation(userId, postUserLocationReq);
             return newDefaultLocation;
+        } catch (Exception exception){
+            throw new BaseException(DATABASE_ERROR);
+        }
+    }
+    public void deleteUserLocation(long id) throws BaseException{
+        try{
+            locationDao.deleteUserLocation(id);
+        } catch (Exception exception){
+            throw new BaseException(DATABASE_ERROR);
+        }
+    }
+    public List<Location> getUserLocations(long userId) throws BaseException {
+        try{
+            List<Location> locations = locationDao.getUserLocations(userId);
+            return locations;
         } catch (Exception exception){
             throw new BaseException(DATABASE_ERROR);
         }
