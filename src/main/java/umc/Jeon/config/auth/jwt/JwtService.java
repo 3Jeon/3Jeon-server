@@ -6,6 +6,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -39,12 +40,14 @@ public class JwtService {
     }
 
     /*
-    Header에서 X-ACCESS-TOKEN 으로 JWT 추출
+    Header에서 Bearer 으로 JWT 추출
     @return String
      */
     public String getJwt(){
         HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
-        return request.getHeader("X-ACCESS-TOKEN");
+//        return request.getHeader("X-ACCESS-TOKEN");
+//        return request.getHeader("Bearer ");
+        return request.getHeader(HttpHeaders.AUTHORIZATION);
     }
 
     /*
@@ -55,6 +58,11 @@ public class JwtService {
     public Long getUserIdx() throws BaseException {
         //1. JWT 추출
         String accessToken = getJwt();
+        System.out.println(accessToken + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+        accessToken = accessToken.substring(7);
+        System.out.println("after substring: " + accessToken + " !!!!!!!!!!!!!");
+
         if(accessToken == null || accessToken.length() == 0){
             throw new BaseException(EMPTY_JWT);
         }

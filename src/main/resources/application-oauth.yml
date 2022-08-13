@@ -5,27 +5,28 @@ spring:
       client:
         registration:
           google:
-            client-id: 459442894891-s55am46n30tju7nlljhftfcl9ckipjv9.apps.googleusercontent.com
-            client-secret: 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
-            # redirect-url: "http://localhost:8080/oauth2/authorization/google"
-            redirect-uri: "https:/3.39.154.221:8080/{action}/oauth2/code/{registrationId}"
+            client-id: 459442894891-8valcud2eel56aiamml5i6cd4s66vaeb.apps.googleusercontent.com
+            client-secret: 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
+            redirect-uri: "https://threejeon.shop/{action}/oauth2/code/{registrationId}"
             scope: profile, email
+
           naver:
             client-id: Vef1Tfl3BU3SXqbU4j8O
             client-secret: gWww1FGuI9
-            redirect-uri: "https://3.39.154.221:8080/{action}/oauth2/code/{registrationId}"
+            redirect-uri: "https://threejeon.shop/{action}/oauth2/code/{registrationId}"
             authorization-grant-type: authorization_code
             scope: name, email, nickname, age, mobile
             client-name: Naver
+
           kakao:
             client-id: b51941d6589770df240008eb26f02f17
             client-secret: s8eEfWkEMWwQelLdIZv2dqmEN3DwCZc6
-#            redirect-uri: "http://43.200.96.202:8080/{action}/oauth2/code/{registrationId}"
-            redirect-uri: "https://3.39.154.221:8080/oauth2/authorization/kakao"
+            redirect-uri: "https://threejeon.shop/{action}/oauth2/code/{registrationId}"
             client-authentication-method: POST
             authorization-grant-type: authorization_code
             scope: profile_nickname, account_email, age_range
             client-name: Kakao
+
         # Provider 설정
         provider:
           naver:
