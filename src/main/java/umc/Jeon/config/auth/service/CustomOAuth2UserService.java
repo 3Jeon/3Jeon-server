@@ -15,7 +15,7 @@ import umc.Jeon.config.auth.dto.OAuthAttributes;
 import umc.Jeon.config.auth.dto.SessionUser;
 import umc.Jeon.config.auth.jwt.JwtService;
 import umc.Jeon.config.exception.BaseException;
-import umc.Jeon.domain.user.User;
+import umc.Jeon.database.user.model.User;
 import umc.Jeon.repository.UserRepository;
 
 import javax.servlet.http.HttpSession;
