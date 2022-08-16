@@ -6,6 +6,7 @@ import umc.Jeon.config.exception.BaseException;
 import umc.Jeon.config.exception.BaseResponse;
 import umc.Jeon.naver_map.model.MapStats;
 
+
 @RestController
 @RequestMapping("/map")
 public class NaverMapController {
