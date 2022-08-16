@@ -22,9 +22,7 @@ public class NaverGeocode {
     public NaverGeocode(LocationDao locationDao){
         this.locationDao = locationDao;
     }
-    public GeoStats getNaverGeocode(long userId, String query) {
-        Location userLocation = locationDao.getUserDefaultLocation(userId);
-        String coordinate = String.format("%s, %s", String.valueOf(userLocation.getLng()), String.valueOf(userLocation.getLat()));
+    public GeoStats getNaverGeocode(long userId, String query, String coordinate) {
 //        String coordinate = "127.06088821638144, 37.547511130279254";
         String url = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode";
         Connection conn = Jsoup.connect(url)

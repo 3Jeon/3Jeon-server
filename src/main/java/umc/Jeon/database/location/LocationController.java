@@ -16,7 +16,6 @@ import java.util.List;
 @RequestMapping("/location")
 public class LocationController {
     final LocationService locationService;
-
     @ApiOperation(value="유저의 기본 주소 불러오기", notes = "유저 ID를 이용하여 기본 주소 검색")
     @ResponseBody
     @GetMapping("/default")

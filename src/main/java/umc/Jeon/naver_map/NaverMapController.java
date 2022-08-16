@@ -16,16 +16,14 @@ import static umc.Jeon.config.exception.BaseResponseStatus.*;
 public class NaverMapController {
 
     final NaverMapService naverMapService;
-    final NaverGeocode naverGeocode;
 
-    public NaverMapController(NaverMapService naverMapService, NaverGeocode naverGeocode) {
+    public NaverMapController(NaverMapService naverMapService) {
         this.naverMapService = naverMapService;
-        this.naverGeocode = naverGeocode;
     }
 
     @ApiOperation(value = "네이버 경로 API", notes = "키워드를 이용한 매장 검색")
     @ResponseBody
-    @GetMapping("/findmap")
+    @GetMapping("/direction")
     public BaseResponse<MapStats> getMapStats(
             @RequestParam(value = "start-lat") String startLat,
             @RequestParam(value = "start-lng") String startLng,
@@ -45,18 +43,19 @@ public class NaverMapController {
         }
     }
 
+    @ApiOperation(value = "네이버 주소 <-> 좌표 변환", notes = "주소를 좌표로 변환해주는 API")
     @ResponseBody
     @GetMapping("/geocode")
     public BaseResponse<GeoStats> getGeoStats(
-            @RequestParam(value = "userId") long userId,
-            @RequestParam(value = "location") String coordinate
+            @RequestParam(value = "userId", defaultValue = "0") long userId,
+            @RequestParam(value = "location") String query
             ){
         try {
-            GeoStats geoStats = naverGeocode.getNaverGeocode(userId, coordinate);
+            GeoStats geoStats = naverMapService.getNaverGeocode(userId, query);
             return new BaseResponse<>(geoStats);
         }
-        catch (Exception exception){
-            return new BaseResponse<>(FAILED_TO_LOAD_GEO);
+        catch (BaseException exception){
+            return new BaseResponse<>(exception.getStatus());
         }
     }
 }
