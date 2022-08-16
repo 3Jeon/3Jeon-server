@@ -58,10 +58,7 @@ public class JwtService {
     public Long getUserIdx() throws BaseException {
         //1. JWT 추출
         String accessToken = getJwt();
-        System.out.println(accessToken + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
         accessToken = accessToken.substring(7);
-        System.out.println("after substring: " + accessToken + " !!!!!!!!!!!!!");
 
         if(accessToken == null || accessToken.length() == 0){
             throw new BaseException(EMPTY_JWT);

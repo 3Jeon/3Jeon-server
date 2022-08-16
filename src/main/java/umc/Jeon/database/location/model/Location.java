@@ -6,8 +6,9 @@ import umc.Jeon.database.BaseEntity;
 import javax.persistence.*;
 
 @Entity
-@Data
 @Table(name = "Location")
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Location extends BaseEntity {

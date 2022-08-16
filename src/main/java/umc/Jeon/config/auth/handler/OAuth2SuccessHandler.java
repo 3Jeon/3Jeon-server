@@ -33,9 +33,6 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         Optional<User> user = userRepository.findByEmail(sessionMember.getEmail());
 
         String jwt = jwtService.createJwt(user.get().getId());
-//        System.out.println(user.get().getId()+"??????????????????????????????????????????????");
-//        System.out.println(sessionMember.getId()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-//        System.out.println(jwt);
 
         String targetUrl = UriComponentsBuilder.fromUriString("/auth")
                 .queryParam("jwt",jwt)

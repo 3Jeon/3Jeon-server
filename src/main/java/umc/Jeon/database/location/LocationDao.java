@@ -74,6 +74,7 @@ public class LocationDao {
         return true;
     }
 
+
     // 새로운 주소 추가후 기본 주소로 변경 하기
     public Location changeUserDefaultLocation(long userId, PostUserLocationReq postUserLocationReq){
         Location prevLocation = getUserDefaultLocation(userId);

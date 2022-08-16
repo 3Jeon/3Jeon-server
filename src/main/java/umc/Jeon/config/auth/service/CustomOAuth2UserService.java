@@ -58,7 +58,6 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
     /** 현재 로그인한 유저 정보 반환 **/
     public User getUserFromAuth(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        String name = authentication.getName();
         Long userId = Long.parseLong(authentication.getName());
         Optional<User> user = userRepository.findById(userId);
         return user.get();
@@ -68,7 +67,6 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
     /** 소셜 로그인 연동 해제 **/
     public Long deleteUser() throws BaseException {
         Optional<User> user = userRepository.findById(jwtService.getUserIdx());
-//        User user = getUserFromAuth();
         userRepository.delete(user.get());
         return user.get().getId();
     }
