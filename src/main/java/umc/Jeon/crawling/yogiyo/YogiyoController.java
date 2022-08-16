@@ -10,8 +10,8 @@ import umc.Jeon.crawling.yogiyo.model.*;
 
 import java.util.List;
 
-import static umc.Jeon.crawling.HashValues.HashValues.YOGIYO_CATEGORY;
-import static umc.Jeon.crawling.HashValues.HashValues.YOGIYO_SORT;
+import static umc.Jeon.crawling.mapping.HashValues.YOGIYO_CATEGORY;
+import static umc.Jeon.crawling.mapping.HashValues.YOGIYO_SORT;
 
 
 @RestController

@@ -1,4 +1,4 @@
-package umc.Jeon.crawling.HashValues;
+package umc.Jeon.crawling.mapping;
 
 import org.springframework.stereotype.Component;
 

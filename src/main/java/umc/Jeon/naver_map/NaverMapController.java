@@ -1,10 +1,10 @@
-package umc.Jeon.navermap;
+package umc.Jeon.naver_map;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import umc.Jeon.config.exception.BaseException;
 import umc.Jeon.config.exception.BaseResponse;
-import umc.Jeon.navermap.model.MapStats;
+import umc.Jeon.naver_map.model.MapStats;
 
 
 @RestController

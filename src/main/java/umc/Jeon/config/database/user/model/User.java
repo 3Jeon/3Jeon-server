@@ -1,9 +1,9 @@
-package umc.Jeon.domain.user;
+package umc.Jeon.config.database.user.model;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import umc.Jeon.domain.BaseEntity;
+import umc.Jeon.config.database.BaseEntity;
 
 import javax.persistence.*;
 
@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class User extends BaseEntity {
     @Id
-    @Column(name = "user_id")
+    @Column(name = "userId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -22,7 +22,7 @@ public class User extends BaseEntity {
     @Column(length = 20)
     private String nickname;
 
-    @Column(length = 20)
+    @Column(length = 30)
     private String phone;
 
     //연령대
@@ -31,11 +31,12 @@ public class User extends BaseEntity {
     private String email;
 
     @Builder
-    public User(String name, String email, String phone, String nickname, String age) {
+    public User(String name, String email, String phone, String nickname, String age, boolean status) {
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.nickname = nickname;
         this.age = age;
+        this.status = status;
     }
 }
