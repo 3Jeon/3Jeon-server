@@ -1,4 +1,4 @@
-package umc.Jeon.navermap.component;
+package umc.Jeon.naver_map.component;
 
 import com.nimbusds.jose.shaded.json.parser.JSONParser;
 import com.nimbusds.jose.shaded.json.parser.ParseException;
