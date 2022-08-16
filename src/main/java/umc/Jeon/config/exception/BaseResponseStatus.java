@@ -68,6 +68,8 @@ public enum BaseResponseStatus {
     CHECK_INVALID_PRODUCT_ID(false,2080,"productIdx에 해당하는 값이 없습니다"),
     CHECK_INVALID_QUESTION_OR_PRODUCT_ID(false,2081,"questionIdx 또는 productIdx를 확인해 주세요"),
 
+    // naver geo
+    FAILED_TO_LOAD_GEO(false, 4000, "GEOCODE 실패"),
 
     /**
      * 3000 : Response 오류

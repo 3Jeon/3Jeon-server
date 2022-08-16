@@ -39,7 +39,6 @@ public class NaverMapJsoup {
             doc = conn.get();
             JSONParser jsonParser = new JSONParser();
             JSONObject jsonObject = (JSONObject) jsonParser.parse(doc.text());
-            jsonObject.get("currentDateTime");
             JSONObject cStart = ((JSONObject) ((JSONObject) ((JSONArray) ((JSONObject) jsonObject.get("route")).get("trafast")).get(0)).get("summary"));
 
             JSONArray startPoint = (JSONArray) ((JSONObject) cStart.get("start")).get("location");

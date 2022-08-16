@@ -1,16 +1,11 @@
 package umc.Jeon.naver_map.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.Date;
 import java.util.List;
 
-@ToString
-@Builder
-@Getter
+@Data
 @AllArgsConstructor
 public class MapStats {
     private List<Double> start;
