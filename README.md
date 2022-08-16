@@ -38,3 +38,14 @@ GET https://threejeon.shop/coupang/469509/menu
 GET https://threejeon.shop/coupang/search-restaurants?lat=37.5479009261467&lng=127.062295814953&search=굽네치킨&sort=review_count
 
 # 로그인 API
+## 전체 로그인 페이지
+https://threejeon.shop/login  
+
+### 카카오톡 로그인
+https://threejeon.shop/oauth2/authorization/kakao
+
+### 구글 로그인
+https://threejeon.shop/oauth2/authorization/google
+
+### 네이버 로그인
+https://threejeon.shop/oauth2/authorization/naver
