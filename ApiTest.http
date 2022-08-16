@@ -156,3 +156,10 @@ X-EATS-LOCATION: {"latitude" : 37.547511130279254, "longitude" : 180.06088821638
 X-EATS-APP-VERSION: 1.3.50
 X-EATS-DEVICE-DENSITY: X2
 
+### 네이버 static
+GET https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query=분당구 불정로 6&coordinate=127.06088821638144, 37.547511130279254
+X-NCP-APIGW-API-KEY-ID: 1zqglvqh0h
+X-NCP-APIGW-API-KEY: Pn5RVciG0yTfQ0WNJxnVSoNuGbLQdwfoMkSTCpob
+
+###
+GET localhost:8080/map/geocode?userId=1&location=분당구 불정로 6
