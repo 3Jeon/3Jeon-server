@@ -1,9 +1,9 @@
-package umc.Jeon.config.database.user.model;
+package umc.Jeon.database.user.model;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import umc.Jeon.config.database.BaseEntity;
+import umc.Jeon.database.BaseEntity;
 
 import javax.persistence.*;
 

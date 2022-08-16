@@ -41,7 +41,6 @@ public class BaeminJsoup {
         List<BRestaurant> bRestaurants = new ArrayList<>();
         try {
             doc = conn.get();
-
             JSONParser jsonParser = new JSONParser();
             JSONObject jsonObject = (JSONObject) jsonParser.parse(doc.text());
             jsonObject = (JSONObject) jsonObject.get("data");

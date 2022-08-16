@@ -22,6 +22,7 @@ spring:
 #    url: jdbc:mysql://three-jeon-db.clhdotgui1vl.ap-northeast-2.rds.amazonaws.com:3306/three-jeon?serverTimezone=UTC&characterEncoding=UTF-8&autoReconnect=true
 #    username: three-jeon # three-jeon 계정 권한: select, insert, update
 #    password: threejeon123456@
+
     driver-class-name: com.mysql.cj.jdbc.Driver
   mvc:
     pathmatch:
@@ -30,7 +31,7 @@ spring:
     allow-circular-references: true
   jpa:
     hibernate:
-      ddl-auto: create-drop # 개발시 : create-drop, creat, update / 운영시 : validate, none
+      ddl-auto: update # 개발시 : create-drop, creat, update / 운영시 : validate, none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
