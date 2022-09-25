@@ -19,7 +19,6 @@ import static umc.Jeon.config.secret.Secret.BAEMIN_USER_AGENT;
 
 @Component
 public class BaeminJsoup {
-
     // 주변 레스토랑 불러오기
     public List<BRestaurant> getBRestaurant(double lat, double lng, String category, String sort) {
         String url = "https://shopdp-api.baemin.com/v1/BAEMIN/curations";
