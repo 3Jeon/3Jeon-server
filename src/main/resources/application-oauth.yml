@@ -5,22 +5,22 @@ spring:
       client:
         registration:
           google:
-            client-id: 459442894891-8valcud2eel56aiamml5i6cd4s66vaeb.apps.googleusercontent.com
-            client-secret: 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
+            client-id: 
+            client-secret: 
             redirect-uri: "https://threejeon.shop/{action}/oauth2/code/{registrationId}"
             scope: profile, email
 
           naver:
-            client-id: Vef1Tfl3BU3SXqbU4j8O
-            client-secret: gWww1FGuI9
+            client-id: 
+            client-secret: 
             redirect-uri: "https://threejeon.shop/{action}/oauth2/code/{registrationId}"
             authorization-grant-type: authorization_code
             scope: name, email, nickname, age, mobile
             client-name: Naver
 
           kakao:
-            client-id: b51941d6589770df240008eb26f02f17
-            client-secret: s8eEfWkEMWwQelLdIZv2dqmEN3DwCZc6
+            client-id: 
+            client-secret: 
             redirect-uri: "https://threejeon.shop/{action}/oauth2/code/{registrationId}"
             client-authentication-method: POST
             authorization-grant-type: authorization_code
